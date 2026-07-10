@@ -8,10 +8,23 @@ const COGNITO_CONFIG = {
     userPoolId: 'us-east-1_djAcEVxhN',
     clientId: '6ad3gtr20eelnje7mp8ooilu6u',
     clientSecret: 'vtadcsrcc5e61jlinagpvgdjura8p1404534aefjejh9et9c89q',
-    hostedUiUrl: 'https://us-east-1djacevxhn.auth.us-east-1.amazoncognito.com/login?client_id=6ad3gtr20eelnje7mp8ooilu6u&response_type=code&scope=email+openid+phone&redirect_uri=http%3A%2F%2F127.0.0.1%3A5502%2Findex.html',
-    redirectUri: 'http://127.0.0.1:5502/index.html',
     domain: 'https://us-east-1djacevxhn.auth.us-east-1.amazoncognito.com',
-    apiGatewayUrl: 'https://vrxdrefcdf.execute-api.us-east-1.amazonaws.com/prod' // UPDATE THIS with your API Gateway Invoke URL once deployed
+    apiGatewayUrl: 'https://vrxdrefcdf.execute-api.us-east-1.amazonaws.com/prod', // UPDATE THIS with your API Gateway Invoke URL once deployed
+    
+    // Dynamically retrieve redirect URI based on window.location
+    get redirectUri() {
+        const origin = window.location.origin;
+        if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+            const port = window.location.port || '5502';
+            return `http://127.0.0.1:${port}/index.html`;
+        }
+        return origin.endsWith('/') ? origin : `${origin}/`;
+    },
+    
+    // Dynamically compute the Hosted UI Login URL
+    get hostedUiUrl() {
+        return `${this.domain}/login?client_id=${this.clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${encodeURIComponent(this.redirectUri)}`;
+    }
 };
 
 // --- Authentication Helper Functions ---
