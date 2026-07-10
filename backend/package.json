@@ -1,0 +1,11 @@
+{
+  "name": "preparationhub-api",
+  "version": "1.0.0",
+  "description": "Backend API for PrepHub college project running on AWS Lambda Node.js 22.x",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/lib-dynamodb": "^3.0.0"
+  }
+}

@@ -1,0 +1,804 @@
+{
+  "interview_topics_dataset": [
+    {
+      "id": 1,
+      "company_name": "Google",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Graph Algorithms (Dijkstra, Topological Sort, Kosaraju's SCC)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 2,
+      "company_name": "Google",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Advanced Dynamic Programming (Digit DP, Bitmask DP)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 3,
+      "company_name": "Google",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Global-Scale Distributed Databases & Consensus (Spanner, Paxos)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 4,
+      "company_name": "Meta",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Two Pointers & Sliding Window Optimization Techniques",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 5,
+      "company_name": "Meta",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Social Graph Infrastructure & News Feed Architecture at Scale",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 6,
+      "company_name": "Amazon",
+      "company_type": "Product-Based",
+      "category": "Low-Level Design",
+      "topic": "Object-Oriented Design (E-commerce Platform / Shopping Cart Pattern)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 7,
+      "company_name": "Amazon",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Trees & Heaps (K-Way Merge, Top K Frequent Elements)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 8,
+      "company_name": "Amazon",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Distributed Caching Strategies (Redis Eviction, Write-Through/Behind)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 9,
+      "company_name": "Microsoft",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "String Manipulation (Trie Data Structure, KMP Pattern Matching)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 10,
+      "company_name": "Microsoft",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Operating System Core Concepts (Thread Synchronization, Semaphores)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 11,
+      "company_name": "Netflix",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Video Streaming Architecture & Content Delivery Networks (CDNs)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 12,
+      "company_name": "Netflix",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Microservices Resiliency (Circuit Breakers, Chaos Engineering concepts)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 13,
+      "company_name": "Apple",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Low-Level Memory Management (Pointers, Memory Leaks, Stack vs Heap)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 14,
+      "company_name": "Apple",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Bit Manipulation & Magic Bitwise Operations",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 15,
+      "company_name": "Uber",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Geospatial Indexing & Quadtrees/H3 Spatial Indexing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 16,
+      "company_name": "Uber",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Graph Traversal (BFS/DFS for Shortest Path in Grid Systems)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 17,
+      "company_name": "Salesforce",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Database Indexing & Query Optimization (B-Trees, Sharding)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 18,
+      "company_name": "Adobe",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Matrix Manipulation & Grid-based Dynamic Programming",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 19,
+      "company_name": "Atlassian",
+      "company_type": "Product-Based",
+      "category": "Low-Level Design",
+      "topic": "SOLID Principles & Factory/Strategy Behavioral Design Patterns",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 20,
+      "company_name": "Atlassian",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Rate Limiters (Token Bucket vs Leaky Bucket Algorithms)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 21,
+      "company_name": "Stripe",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Distributed Transactions & Idempotency in Payment Systems",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 22,
+      "company_name": "Airbnb",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Consistent Hashing & Dynamic Configuration Management Systems",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 23,
+      "company_name": "LinkedIn",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Message Queues & Event Streaming Pipelines (Kafka Architecture)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 24,
+      "company_name": "PayPal",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Web Security Fundamentals (OAuth2, JWT, CSRF Mitigation)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 25,
+      "company_name": "Oracle",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Database Internals (ACID Properties, Concurrency Control, WAL)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 26,
+      "company_name": "Intuit",
+      "company_type": "Product-Based",
+      "category": "Low-Level Design",
+      "topic": "Conventions of Clean Code & Object Modeling for Financial Apps",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 27,
+      "company_name": "Nvidia",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Parallel Computing, Multi-threading, and Hardware-Software Interfacing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 28,
+      "company_name": "Snowflake",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Distributed Storage Systems, Query Compilation, and OLAP Architecture",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 29,
+      "company_name": "Databricks",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Advanced Data Structures (Segment Trees, Fenwick Trees)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 30,
+      "company_name": "Palantir",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Complex Backtracking Problems & Heuristic Search Optimization",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 31,
+      "company_name": "Arista Networks",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Computer Networks (TCP/IP Stack, BGP Routing, Socket Programming)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 32,
+      "company_name": "Rubrik",
+      "company_type": "Product-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Data Deduplication Logic, Hashing, and File System Trees",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 33,
+      "company_name": "Cohesity",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Distributed File Systems & Linux Kernel Internal Mechanics",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 34,
+      "company_name": "Confluent",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Log-Structured Merge-Trees & Distributed Pub/Sub Internals",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 35,
+      "company_name": "HashiCorp",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Raft Consensus Protocol & Distributed State Synchronization",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 36,
+      "company_name": "Cockroach Labs",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "Serializable Snapshot Isolation (SSI) & Multi-Region Data Routing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 37,
+      "company_name": "PubNub",
+      "company_type": "Product-Based",
+      "category": "High-Level Design",
+      "topic": "WebSockets vs Long Polling for Real-Time Bidirectional Messaging",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 38,
+      "company_name": "Fastly",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "HTTP/3 Protocol Architecture & Edge Compute Compiling (Wasm)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 39,
+      "company_name": "Graphcore",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "SRAM Allocation Optimization & Compiler Graph Representations",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 40,
+      "company_name": "ScyllaDB",
+      "company_type": "Product-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Asynchronous Thread-per-core Architecture & Memory Sharding",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 41,
+      "company_name": "TCS (Tata Consultancy Services)",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Basic Object-Oriented Programming (Abstraction, Inheritance, Polymorphism)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 42,
+      "company_name": "TCS (Tata Consultancy Services)",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "SQL Joins, Subqueries, and Core DDL/DML Commands",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 43,
+      "company_name": "Infosys",
+      "company_type": "Service-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "Basic Array Operations, Searching (Binary Search), and Sorting (Bubble/Merge)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 44,
+      "company_name": "Infosys",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Software Development Life Cycle (SDLC) Frameworks (Agile vs Waterfall)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 45,
+      "company_name": "Wipro",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Database Normalization Forms (1NF, 2NF, 3NF, BCNF)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 46,
+      "company_name": "Wipro",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Exception Handling Mechanisms & Memory Layout of Program Execution",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 47,
+      "company_name": "Cognizant",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Core Web Technologies (HTML5, CSS3 layout engines, Javascript DOM)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 48,
+      "company_name": "Cognizant",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Introduction to Cloud Models (IaaS vs PaaS vs SaaS Definitions)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 49,
+      "company_name": "Accenture",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "REST API Architecture Patterns (HTTP Methods, Status Codes, JSON structure)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 50,
+      "company_name": "Accenture",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "DevOps Foundations (Version Control with Git, CI/CD pipelines)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 51,
+      "company_name": "HCLTech",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Operating System Scheduling (Round Robin, FIFO, Deadlock Conditions)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 52,
+      "company_name": "Capgemini",
+      "company_type": "Service-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "String Frequency Analysis & Basic Hashing Concepts (HashMaps)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 53,
+      "company_name": "IBM Consulting",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Enterprise Architecture Paradigms & Monolithic to Microservice Migration",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 54,
+      "company_name": "LTIMindtree",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Data Warehousing Basics & ETL (Extract, Transform, Load) Frameworks",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 55,
+      "company_name": "Tech Mahindra",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Telecommunication Networking Protocols & OSI Model Layers",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 56,
+      "company_name": "DXC Technology",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "System Virtualization Fundamentals & Legacy Application Support Logic",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 57,
+      "company_name": "EPAM Systems",
+      "company_type": "Service-Based",
+      "category": "Low-Level Design",
+      "topic": "Refactoring Legacy Code & Code Quality Design Patterns",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 58,
+      "company_name": "EPAM Systems",
+      "company_type": "Service-Based",
+      "category": "Data Structures & Algorithms",
+      "topic": "LeetCode Medium Tracking (Recursion, Stack Execution, Queue Models)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 59,
+      "company_name": "Globant",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Modern Frontend UI Framework Lifecycle Architecture (React/Angular)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 60,
+      "company_name": "Deloitte USI",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "IT Governance, Cloud Access Control Models (IAM), and Data Auditing",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 61,
+      "company_name": "Zensar Technologies",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "E-commerce Component Integration & Third-Party API Management",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 62,
+      "company_name": "Hexaware Technologies",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Automated Testing Suites Architecture (Selenium/Playwright Patterns)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 63,
+      "company_name": "Virtusa",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Banking Domain Data Schemas & Mainframe Integration Logic",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 64,
+      "company_name": "Persistent Systems",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Identity Access Management Flows & Directory Services Protocols (LDAP)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 65,
+      "company_name": "Birlasoft",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Enterprise Resource Planning (ERP) Custom DB Trigger Writing",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 66,
+      "company_name": "Cybage Software",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Content Management System (CMS) Database Schema Relations",
+      "frequency_weight": "Low"
+    },
+    {
+      "id": 67,
+      "company_name": "Coforge",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Travel Domain GDS Integration & Message Validation Pipelines",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 68,
+      "company_name": "Mphasis",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Infrastructure Automation Scripting (Ansible Shell Execution)",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 69,
+      "company_name": "KPIT Technologies",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Automotive Embedded Systems Coding Standards (MISRA C Basics)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 70,
+      "company_name": "Sonata Software",
+      "company_type": "Service-Based",
+      "category": "Core CS Fundamentals",
+      "topic": "Cloud-Native Multi-Tenant Isolation Strategies",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 71,
+      "company_name": "OpenAI",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Distributed Model Training Compute Orchestration & Network Fabrics",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 72,
+      "company_name": "OpenAI",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Transformer Architecture Foundations (Attention Mechanisms, Tokenization)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 73,
+      "company_name": "Anthropic",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Agentic AI Orchestration Systems & Multi-Agent Communication Frameworks",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 74,
+      "company_name": "Midjourney",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "GPU Resource Allocation Schedulers & Distributed Asset Rendering Pipelines",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 75,
+      "company_name": "Perplexity AI",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Retrieval-Augmented Generation (RAG) Architecture & Vector DB Indexing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 76,
+      "company_name": "Vercel",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Edge Network Infrastructure, Static/Dynamic Hydration, and CDN Routing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 77,
+      "company_name": "Supabase",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Real-Time Relational Stream Processing via Database Replication Logs",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 78,
+      "company_name": "Figma",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Conflict-Free Replicated Data Types (CRDTs) & Real-Time Canvas Rendering",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 79,
+      "company_name": "Scale AI",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "High-Throughput Data Ingestion, Video Annotation Streaming Pipelines",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 80,
+      "company_name": "Ramp",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Real-Time Fraud Detection Pipelines & Ledger Compliance Double-Entry Schemes",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 81,
+      "company_name": "Glean",
+      "company_type": "Startup",
+      "category": "Data Structures & Algorithms",
+      "topic": "Enterprise Document Graph Traversal Algorithms & Semantic Search Weighting",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 82,
+      "company_name": "Hugging Face",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Model Serialization (Safetensors) & Git-LFS Large Scale Storage Optimization",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 83,
+      "company_name": "Linear",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Offline-First Sync Mechanisms & High-Performance Client-Side Cache Indexing",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 84,
+      "company_name": "Deel",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Multi-Region Multi-Currency Localization Architecture Patterns",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 85,
+      "company_name": "Retool",
+      "company_type": "Startup",
+      "category": "Low-Level Design",
+      "topic": "Dynamic Javascript Sandbox Execution Engines & AST (Abstract Syntax Tree) Evaluation",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 86,
+      "company_name": "Pinecone",
+      "company_type": "Startup",
+      "category": "Data Structures & Algorithms",
+      "topic": "Approximate Nearest Neighbor (ANN) Graph Algorithms (HNSW, IVF-PQ)",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 87,
+      "company_name": "Wiz",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Cloud Graph Security Risk Parsing & Ephemeral Snapshot Analysis Internals",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 88,
+      "company_name": "Postman",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "API Specification Parsing Logic (OpenAPI/Swagger) & HTTP Request Interception",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 89,
+      "company_name": "BrowserStack",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Ephemeral Container Infrastructure Provisioning & Video Frame Capturing at Scale",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 90,
+      "company_name": "Canva",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Distributed Assets Storage Optimization & Real-Time Group Operations Logging",
+      "frequency_weight": "Medium"
+    },
+    {
+      "id": 91,
+      "company_name": "Railway",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Multi-Tenant Container Orchestration & Dynamic Private Network Mesh Provisioning",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 92,
+      "company_name": "Cal.com",
+      "company_type": "Startup",
+      "category": "Data Structures & Algorithms",
+      "topic": "Time-Slot Intersection Algorithms & Time-Zone Paradox Handling",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 93,
+      "company_name": "Resend",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "High-Throughput SMTP Relay Architecture & Queue Failure Retry Mechanics",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 94,
+      "company_name": "Dub.co",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "High-Performance Edge URL Redirect Hashing & Real-time Analytics Ingestion",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 95,
+      "company_name": "LangChain",
+      "company_type": "Startup",
+      "category": "Low-Level Design",
+      "topic": "DAG (Directed Acyclic Graph) Execution Patterns for Modular Pipelines",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 96,
+      "company_name": "Trigger.dev",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Long-Running Background Job State Machines & Durable Execution Engines",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 97,
+      "company_name": "Inngest",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Serverless Event-Driven Step Automation & State Reconciliation Loops",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 98,
+      "company_name": "Clerk",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Cross-Domain Session Management, Cookies Architecture, and JWT Verification Flaws",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 99,
+      "company_name": "Axiom",
+      "company_type": "Startup",
+      "category": "High-Level Design",
+      "topic": "Serverless Log Analytics Storage Optimization & Hyper-Fast Dynamic String Filtering",
+      "frequency_weight": "High"
+    },
+    {
+      "id": 100,
+      "company_name": "Fly.io",
+      "company_type": "Startup",
+      "category": "Core CS Fundamentals",
+      "topic": "Anycast IP Edge Routing Networks & MicroVM (Firecracker) Cold Start Mitigations",
+      "frequency_weight": "High"
+    }
+  ]
+}

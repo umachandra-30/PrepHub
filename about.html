@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - About Us & Tech Stack</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Learn about PrepHub's purpose, design features, categories, and technical architecture. Premium placement preparation.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main>
+        <div class="container">
+            
+            <section class="about-card animate-fade">
+                <h1 class="about-title">About PrepHub</h1>
+                <p class="about-p">PrepHub is a premium, lightweight placement preparation portal built to assist engineering students and job aspirants in cracking technical rounds, quantitative assessments, logical tests, and verbal screenings. By providing structure, detailed explanations, timed test environments, and client-side performance logs, PrepHub helps users build competence and confidence without login blocks or intrusive advertisements.</p>
+
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; font-family:'Outfit';">Core Platform Features</h2>
+                <div class="about-grid">
+                    
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="lucide-database"></i></div>
+                        <h3 class="about-feature-title">2000+ Question Bank</h3>
+                        <p class="about-feature-desc">Dynamically loaded questions curated across 30 distinct subjects, tracking specific companies and tags.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="lucide-hourglass"></i></div>
+                        <h3 class="about-feature-title">Timed Mock Assessments</h3>
+                        <p class="about-feature-desc">Generate randomized test packages of 10, 25, or 50 questions with customized category filters and running timers.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="lucide-bookmark"></i></div>
+                        <h3 class="about-feature-title">Intelligent Bookmarks</h3>
+                        <p class="about-feature-desc">Save tricky challenges to your personal boards. Test yourself directly on bookmarks using inline evaluation utilities.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="lucide-line-chart"></i></div>
+                        <h3 class="about-feature-title">Performance Analytics</h3>
+                        <p class="about-feature-desc">Track completion levels and choice accuracy percentages per category and subject, saved securely in your browser.</p>
+                    </div>
+
+                </div>
+
+                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-family:'Outfit';">Technology Stack</h2>
+                <p style="color:var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">PrepHub is engineered to run fully static, prioritizing speed, accessibility, and simplicity. The frontend codebase relies entirely on vanilla web technologies:</p>
+                
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="padding: 1rem; border-radius: var(--border-radius-md); border:1px solid var(--border-color); background-color: var(--bg-primary);">
+                        <strong style="display:block; margin-bottom:0.25rem;"><i class="lucide-html5" style="vertical-align:middle; color:var(--primary); margin-right:0.25rem;"></i> HTML5</strong>
+                        <span style="font-size:0.8rem; color:var(--text-secondary);">Semantic layouts, accessibility tags, and dynamic iframe-free DOM rendering structures.</span>
+                    </div>
+                    <div style="padding: 1rem; border-radius: var(--border-radius-md); border:1px solid var(--border-color); background-color: var(--bg-primary);">
+                        <strong style="display:block; margin-bottom:0.25rem;"><i class="lucide-brush" style="vertical-align:middle; color:var(--accent); margin-right:0.25rem;"></i> Vanilla CSS3</strong>
+                        <span style="font-size:0.8rem; color:var(--text-secondary);">Flexible layouts via CSS Grid and Flexbox, custom design properties, keyframe skeletons, and responsive media query blocks.</span>
+                    </div>
+                    <div style="padding: 1rem; border-radius: var(--border-radius-md); border:1px solid var(--border-color); background-color: var(--bg-primary);">
+                        <strong style="display:block; margin-bottom:0.25rem;"><i class="lucide-code" style="vertical-align:middle; color:var(--success); margin-right:0.25rem;"></i> Vanilla JS (ES6)</strong>
+                        <span style="font-size:0.8rem; color:var(--text-secondary);">Fetch API operations, asynchronous promises, modular page state listeners, and dynamic browser layout injection structures.</span>
+                    </div>
+                    <div style="padding: 1rem; border-radius: var(--border-radius-md); border:1px solid var(--border-color); background-color: var(--bg-primary);">
+                        <strong style="display:block; margin-bottom:0.25rem;"><i class="lucide-hard-drive" style="vertical-align:middle; color:var(--warning); margin-right:0.25rem;"></i> LocalStorage</strong>
+                        <span style="font-size:0.8rem; color:var(--text-secondary);">Local user storage parsing to keep bookmarks list, solved stats, and recently viewed logs persistent without servers.</span>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; text-align: center;">
+                    <a href="index.html" class="btn btn-primary">
+                        <span>Go to Dashboard</span>
+                        <i class="lucide-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+</body>
+</html>

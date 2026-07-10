@@ -1,0 +1,1082 @@
+{
+    "categories": {
+        "technical": {
+            "name": "Technical",
+            "icon": "code-2",
+            "description": "Master core computer science subjects including Data Structures, Algorithms, DBMS, and Operating Systems for technical interviews.",
+            "subjects": {
+                "computer_networks": {
+                    "name": "Computer Networks",
+                    "file": "data/technical/computer_networks.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "ARP",
+                        "Application Protocols",
+                        "Bandwidth & Throughput",
+                        "DHCP",
+                        "DNS",
+                        "Error Detection",
+                        "Firewalls & Security",
+                        "Flow Control",
+                        "HTTP & HTTPS",
+                        "ICMP",
+                        "IP Addressing",
+                        "IPv6",
+                        "MAC Address",
+                        "NAT",
+                        "Network Devices",
+                        "Network Security",
+                        "Network Topologies",
+                        "Network Types",
+                        "OSI Model",
+                        "Protocols & Ports",
+                        "Routing",
+                        "Switching",
+                        "TCP",
+                        "TCP/IP Model",
+                        "VPN",
+                        "Wireless Networking"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cisco",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 19,
+                        "Medium": 26,
+                        "Hard": 5
+                    }
+                },
+                "dbms": {
+                    "name": "DBMS",
+                    "file": "data/technical/dbms.json",
+                    "questionCount": 100,
+                    "topics": [
+                        "Concurrency Control",
+                        "Data Integrity",
+                        "ER Model",
+                        "File Organization",
+                        "Functional Dependencies",
+                        "Indexing",
+                        "Introduction to DBMS",
+                        "Joins",
+                        "Keys",
+                        "Miscellaneous",
+                        "NoSQL",
+                        "Normalization",
+                        "Query Processing",
+                        "Recovery",
+                        "Relational Model",
+                        "SQL Advanced",
+                        "SQL Basics",
+                        "Transactions"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 33,
+                        "Medium": 48,
+                        "Hard": 19
+                    }
+                },
+                "dsa": {
+                    "name": "Data Structures & Algorithms",
+                    "file": "data/technical/dsa.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Arrays",
+                        "Bit Manipulation",
+                        "Dynamic Programming",
+                        "Graph",
+                        "Greedy",
+                        "Hashing",
+                        "Heap",
+                        "Linked List",
+                        "Queue",
+                        "Recursion & Backtracking",
+                        "Searching",
+                        "Sliding Window",
+                        "Sorting",
+                        "Space Complexity",
+                        "Stack",
+                        "Trees",
+                        "Two Pointers"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 12,
+                        "Medium": 28,
+                        "Hard": 10
+                    }
+                },
+                "oops": {
+                    "name": "OOPs",
+                    "file": "data/technical/oops.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Abstract Class",
+                        "Abstraction",
+                        "Access Modifiers",
+                        "Association",
+                        "Basics of OOPs",
+                        "Class and Object",
+                        "Cohesion",
+                        "Composition",
+                        "Constructor",
+                        "Coupling",
+                        "Design Patterns",
+                        "Design Principles",
+                        "Destructor",
+                        "Encapsulation",
+                        "Exception Handling",
+                        "Garbage Collection",
+                        "Inheritance",
+                        "Interface",
+                        "Interface vs Abstract Class",
+                        "Memory Management",
+                        "OOPS Concepts",
+                        "OOPs vs Procedural",
+                        "Object Cloning",
+                        "Polymorphism",
+                        "SOLID Principles",
+                        "Serialization",
+                        "Static Members",
+                        "Virtual Functions",
+                        "final Keyword",
+                        "this Keyword"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "General Placement",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 13,
+                        "Medium": 25,
+                        "Hard": 12
+                    }
+                },
+                "operating_systems": {
+                    "name": "Operating Systems",
+                    "file": "data/technical/operating_systems.json",
+                    "questionCount": 150,
+                    "topics": [
+                        "CPU Scheduling",
+                        "Deadlock",
+                        "Disk Scheduling",
+                        "File System",
+                        "Memory Management",
+                        "OS Basics",
+                        "Operating System Basics",
+                        "Process Management",
+                        "Process Synchronization"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "Google Amazon",
+                        "Google Deloitte",
+                        "HCL",
+                        "Hold and Wait",
+                        "Infosys",
+                        "Microsoft",
+                        "Microsoft Amazon",
+                        "TCS",
+                        "TCS Infosys",
+                        "Wipro",
+                        "Wipro Infosys",
+                        "and accounting info"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 33,
+                        "Medium": 68,
+                        "Hard": 49
+                    }
+                }
+            }
+        },
+        "aptitude": {
+            "name": "Aptitude",
+            "icon": "calculator",
+            "description": "Strengthen your quantitative aptitude skills with topics on percentages, averages, work & time, and simple & compound interest.",
+            "subjects": {
+                "percentages": {
+                    "name": "Percentages",
+                    "file": "data/aptitude/percentages.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Percentages"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 15,
+                        "Medium": 15,
+                        "Hard": 20
+                    }
+                },
+                "profit_and_loss": {
+                    "name": "Profit & Loss",
+                    "file": "data/aptitude/profit_and_loss.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Profit and Loss"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 15,
+                        "Medium": 15,
+                        "Hard": 20
+                    }
+                },
+                "averages": {
+                    "name": "Averages",
+                    "file": "data/aptitude/averages.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Average Age",
+                        "Average Age Problem",
+                        "Average Distance",
+                        "Average Expenditure",
+                        "Average Income",
+                        "Average Marks",
+                        "Average Property",
+                        "Average Runs",
+                        "Average Salary",
+                        "Average Speed",
+                        "Average Temperature",
+                        "Average Weight",
+                        "Average and Ratio",
+                        "Average of Arithmetic Progression",
+                        "Average of Consecutive Numbers",
+                        "Average of Cubes",
+                        "Average of Mixed Sequence",
+                        "Average of Squares",
+                        "Average with Addition",
+                        "Average with Removal",
+                        "Average with Replacement",
+                        "Average with Two Groups",
+                        "Batting Average Improvement",
+                        "Consecutive Even Numbers",
+                        "Consecutive Odd Numbers",
+                        "Error Correction",
+                        "Moving Average",
+                        "Overlap Average",
+                        "Simple Average",
+                        "Sum and Average Relationship",
+                        "Weighted Average"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 16,
+                        "Medium": 21,
+                        "Hard": 13
+                    }
+                },
+                "mixtures_and_alligations": {
+                    "name": "Mixtures & Alligations",
+                    "file": "data/aptitude/mixtures_and_alligations.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Mixtures & Alligations"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 19,
+                        "Medium": 20,
+                        "Hard": 11
+                    }
+                },
+                "permutations_and_combinations": {
+                    "name": "Permutations & Combinations",
+                    "file": "data/aptitude/permutations_and_combinations.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Circular Permutations",
+                        "Combinations",
+                        "Permutations"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "General Placement",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 16,
+                        "Medium": 21,
+                        "Hard": 13
+                    }
+                },
+                "probability": {
+                    "name": "Probability",
+                    "file": "data/aptitude/probability.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Addition Rule",
+                        "Basic Probability",
+                        "Bayes Theorem",
+                        "Binomial Distribution",
+                        "Cards",
+                        "Combination",
+                        "Complementary Events",
+                        "Conditional Probability",
+                        "Dice",
+                        "Expected Value",
+                        "Geometric Distribution",
+                        "Geometric Probability",
+                        "Independent Events",
+                        "Mutually Exclusive Events",
+                        "Normal Distribution",
+                        "Odds",
+                        "Permutation & Combination",
+                        "Poisson Distribution",
+                        "Random Variables"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 17,
+                        "Medium": 21,
+                        "Hard": 12
+                    }
+                },
+                "ratio_and_proportion": {
+                    "name": "Ratio & Proportion",
+                    "file": "data/aptitude/ratio_and_proportion.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Basic Ratio",
+                        "Compound Ratio",
+                        "Continued Proportion",
+                        "Direct Proportion",
+                        "Dividing in Ratio",
+                        "Duplicate & Sub-duplicate Ratio",
+                        "Inverse Proportion",
+                        "Partnership Ratio",
+                        "Proportion",
+                        "Ratio",
+                        "Ratio in Mixture",
+                        "Ratio of Ages",
+                        "Triplicate Ratio"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 15,
+                        "Medium": 25,
+                        "Hard": 10
+                    }
+                },
+                "simple_and_compound_interest": {
+                    "name": "Simple & Compound Interest",
+                    "file": "data/aptitude/simple_and_compound_interest.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Compound Interest",
+                        "Effective Rate",
+                        "Half-Yearly Compounding",
+                        "Quarterly Compounding",
+                        "Simple Interest"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "HCL",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 11,
+                        "Medium": 23,
+                        "Hard": 16
+                    }
+                },
+                "speed_and_distance": {
+                    "name": "Speed & Distance",
+                    "file": "data/aptitude/speed_and_distance.json",
+                    "questionCount": 150,
+                    "topics": [
+                        "Average Speed",
+                        "Basic Speed Distance Time",
+                        "Boats and Streams",
+                        "Circular Track",
+                        "Relative Speed",
+                        "Trains",
+                        "Unit Conversion"
+                    ],
+                    "companies": [
+                        "100)=300 sec.",
+                        "150",
+                        "A",
+                        "B",
+                        "C",
+                        "Cognizant",
+                        "D",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 41,
+                        "Medium": 67,
+                        "Hard": 42
+                    }
+                },
+                "time_and_work": {
+                    "name": "Time & Work",
+                    "file": "data/aptitude/time_and_work.json",
+                    "questionCount": 120,
+                    "topics": [
+                        "Basic Work Rate",
+                        "Efficiency",
+                        "Fraction of Work",
+                        "Man-Days Concept",
+                        "Pipes and Cisterns",
+                        "Work Done",
+                        "Work Rate",
+                        "Work and Wages"
+                    ],
+                    "companies": [
+                        "15",
+                        "Accenture",
+                        "Capgemini",
+                        "Cognizant",
+                        "GeeksforGeeks",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 39,
+                        "Medium": 57,
+                        "Hard": 24
+                    }
+                }
+            }
+        },
+        "reasoning": {
+            "name": "Reasoning",
+            "icon": "brain-circuit",
+            "description": "Enhance your logical and analytical reasoning capabilities with puzzles, blood relations, and coding-decoding questions.",
+            "subjects": {
+                "analogies": {
+                    "name": "Analogies",
+                    "file": "data/reasoning/analogies.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Abstract Analogies",
+                        "Action and Agent",
+                        "Animal and Habitat",
+                        "Animal and Sound",
+                        "Animal and Young",
+                        "Antonym Analogies",
+                        "Cause and Effect",
+                        "Degree of Intensity",
+                        "Food and Source",
+                        "Geography Analogies",
+                        "Literary Analogies",
+                        "Miscellaneous",
+                        "Number and Shape",
+                        "Object and Use",
+                        "Part and Whole",
+                        "Product and Source",
+                        "Profession and Workplace",
+                        "Science Analogies",
+                        "Synonym Analogies",
+                        "Technology Analogies",
+                        "Worker and Tool"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 18,
+                        "Medium": 21,
+                        "Hard": 11
+                    }
+                },
+                "direction_sense": {
+                    "name": "Direction Sense",
+                    "file": "data/reasoning/direction_sense.json",
+                    "questionCount": 150,
+                    "topics": [
+                        "Basic Directions",
+                        "Distance Calculation",
+                        "Shadow & Sun Position",
+                        "Turns and Rotations"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "HCL",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 41,
+                        "Medium": 62,
+                        "Hard": 47
+                    }
+                },
+                "logical_sequence": {
+                    "name": "Logical Sequence",
+                    "file": "data/reasoning/logical_sequence.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Letter Series",
+                        "Mixed Series",
+                        "Number Series",
+                        "Word Arrangement"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 15,
+                        "Medium": 22,
+                        "Hard": 13
+                    }
+                },
+                "number_series": {
+                    "name": "Number Series",
+                    "file": "data/reasoning/number_series.json",
+                    "questionCount": 150,
+                    "topics": [
+                        "Alternating Addition",
+                        "Alternating Multiply",
+                        "Alternating Series",
+                        "Arithmetic Mean",
+                        "Arithmetic Progression",
+                        "Cube Roots",
+                        "Cube Series",
+                        "Decreasing Series",
+                        "Descending GP",
+                        "Double Alternating",
+                        "Double Difference",
+                        "Even Number Series",
+                        "Fibonacci Series",
+                        "Fibonacci Variant",
+                        "Fractional Series",
+                        "Geometric Mean",
+                        "Geometric Progression",
+                        "Harmonic Progression",
+                        "Missing Number",
+                        "Mixed Multiplication",
+                        "Mixed Pattern",
+                        "Mixed Series",
+                        "Number Pattern",
+                        "Odd Number Series",
+                        "Powers of 2",
+                        "Powers of 3",
+                        "Prime Number Series",
+                        "Spiral Series",
+                        "Square Differences",
+                        "Square Root Series",
+                        "Square Series",
+                        "Square and Addition",
+                        "Sum of Series",
+                        "Triangular Numbers"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 31,
+                        "Medium": 58,
+                        "Hard": 61
+                    }
+                },
+                "puzzles": {
+                    "name": "Puzzles",
+                    "file": "data/reasoning/puzzles.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Age Puzzles",
+                        "Analogy",
+                        "Blood Relations",
+                        "Calendar Puzzles",
+                        "Clock Puzzles",
+                        "Coding-Decoding",
+                        "Cryptarithmetic",
+                        "Direction Sense",
+                        "Letter Series",
+                        "Logical Reasoning",
+                        "Mathematical Puzzles",
+                        "Missing Letter",
+                        "Missing Number",
+                        "Number Puzzles",
+                        "Number Series",
+                        "Odd One Out",
+                        "Ranking Puzzles",
+                        "River Crossing",
+                        "Seating Arrangement",
+                        "Syllogism",
+                        "Truth and Lies",
+                        "Visual Patterns",
+                        "Weighing Puzzles"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 13,
+                        "Medium": 26,
+                        "Hard": 11
+                    }
+                },
+                "blood_relations": {
+                    "name": "Blood Relations",
+                    "file": "data/reasoning/blood_relations.json",
+                    "questionCount": 100,
+                    "topics": [
+                        "Coded Relations",
+                        "Direct Relations",
+                        "Generation Based",
+                        "Indirect Relations",
+                        "Pointing Based",
+                        "Puzzle Based"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 41,
+                        "Medium": 37,
+                        "Hard": 22
+                    }
+                },
+                "coding_decoding": {
+                    "name": "Coding-Decoding",
+                    "file": "data/reasoning/coding_decoding.json",
+                    "questionCount": 100,
+                    "topics": [
+                        "Coding-Decoding"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 33,
+                        "Medium": 37,
+                        "Hard": 30
+                    }
+                },
+                "seating_arrangement": {
+                    "name": "Seating Arrangement",
+                    "file": "data/reasoning/seating_arrangement.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Circular Arrangement",
+                        "Concepts",
+                        "Double Row Arrangement",
+                        "Linear Arrangement"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "HCL",
+                        "Infosys",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 11,
+                        "Medium": 23,
+                        "Hard": 16
+                    }
+                },
+                "statements_and_conclusions": {
+                    "name": "Statements & Conclusions",
+                    "file": "data/reasoning/statements_and_conclusions.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Statements & Conclusions"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 18,
+                        "Medium": 20,
+                        "Hard": 12
+                    }
+                },
+                "syllogisms": {
+                    "name": "Syllogisms",
+                    "file": "data/reasoning/syllogisms.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Syllogisms"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 20,
+                        "Medium": 18,
+                        "Hard": 12
+                    }
+                }
+            }
+        },
+        "verbal": {
+            "name": "Verbal",
+            "icon": "languages",
+            "description": "Polish your verbal ability, sentence improvement, reading comprehension, and grammar rules.",
+            "subjects": {
+                "fill_in_the_blanks": {
+                    "name": "Fill in the Blanks",
+                    "file": "data/verbal/fill_in_the_blanks.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Articles",
+                        "Conjunctions",
+                        "Grammar",
+                        "Idioms",
+                        "Phrasal Verbs",
+                        "Prepositions",
+                        "Tenses",
+                        "Vocabulary"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Tech Mahindra",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 18,
+                        "Medium": 22,
+                        "Hard": 10
+                    }
+                },
+                "reading_comprehension": {
+                    "name": "Reading Comprehension",
+                    "file": "data/verbal/reading_comprehension.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Passage-Based: Business",
+                        "Passage-Based: Communication",
+                        "Passage-Based: Education",
+                        "Passage-Based: Environment",
+                        "Passage-Based: Health",
+                        "Passage-Based: History & Culture",
+                        "Passage-Based: Leadership",
+                        "Passage-Based: Science",
+                        "Passage-Based: Social Issues",
+                        "Passage-Based: Technology"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 20,
+                        "Medium": 20,
+                        "Hard": 10
+                    }
+                },
+                "sentence_improvement": {
+                    "name": "Sentence Improvement",
+                    "file": "data/verbal/sentence_improvement.json",
+                    "questionCount": 50,
+                    "topics": [
+                        "Adjectives and Adverbs",
+                        "Articles",
+                        "Concord",
+                        "Conjunctions",
+                        "Idiomatic Usage",
+                        "Modifiers",
+                        "Negation",
+                        "Parallelism",
+                        "Prepositions",
+                        "Pronouns",
+                        "Punctuation",
+                        "Redundancy",
+                        "Reported Speech",
+                        "Sentence Structure",
+                        "Subject-Verb Agreement",
+                        "Tense Usage",
+                        "Voice",
+                        "Word Choice"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 15,
+                        "Medium": 19,
+                        "Hard": 16
+                    }
+                },
+                "synonyms_and_antonyms": {
+                    "name": "Synonyms & Antonyms",
+                    "file": "data/verbal/synonyms_and_antonyms.json",
+                    "questionCount": 100,
+                    "topics": [
+                        "Synonyms & Antonyms"
+                    ],
+                    "companies": [
+                        "Accenture",
+                        "Amazon",
+                        "Capgemini",
+                        "Cognizant",
+                        "Deloitte",
+                        "Google",
+                        "HCL",
+                        "Infosys",
+                        "Microsoft",
+                        "TCS",
+                        "Wipro"
+                    ],
+                    "difficultyDistribution": {
+                        "Easy": 17,
+                        "Medium": 46,
+                        "Hard": 37
+                    }
+                }
+            }
+        }
+    }
+}

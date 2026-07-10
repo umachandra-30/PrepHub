@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Hiring Trends</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Explore hiring trends, interview frequency weights, and hot topics asked by top product and service-based companies.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Extra custom styles for hiring trends */
+        .trends-hero {
+            padding: 3rem 0;
+            background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.05), transparent 45%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        
+        .trends-filter-bar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            flex-grow: 1;
+            min-width: 180px;
+        }
+
+        .filter-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 0.65rem 1rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            border-color: var(--primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .trend-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .trend-badge-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .company-pill {
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--border-radius-full);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .type-pill {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .trend-topic {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .trend-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.85rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .freq-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .freq-high {
+            background-color: var(--danger-bg);
+            color: var(--danger);
+        }
+
+        .freq-medium {
+            background-color: var(--warning-bg);
+            color: var(--warning);
+        }
+
+        .freq-low {
+            background-color: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+        }
+        
+        .no-trends {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .no-trends i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main>
+        
+        <!-- Hero Banner Section -->
+        <section class="trends-hero">
+            <div class="container">
+                <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; font-family:'Outfit';">Hiring Trends & Insights</h1>
+                <p style="color:var(--text-secondary); line-height:1.6; max-width:750px;">
+                    Stay ahead of the curve. Explore the concepts and domain topics most frequently tested by top product and service MNCs during technical recruitment drives.
+                </p>
+            </div>
+        </section>
+
+        <div class="container">
+            
+            <!-- Dynamic Stats Section -->
+            <section class="stats-grid" id="trends-stats" style="margin-bottom: 2rem; margin-top: 0;">
+                <!-- Stat Card: Total Trends -->
+                <div class="stat-card">
+                    <div class="stat-icon total-cat">
+                        <i class="lucide-trending-up"></i>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-total-trends">0</div>
+                        <div class="stat-label">Hiring Metrics</div>
+                    </div>
+                </div>
+                <!-- Stat Card: High Priority -->
+                <div class="stat-card">
+                    <div class="stat-icon total-ques" style="background-color: var(--danger-bg); color: var(--danger);">
+                        <i class="lucide-alert-triangle"></i>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-high-freq">0</div>
+                        <div class="stat-label">High Priority Topics</div>
+                    </div>
+                </div>
+                <!-- Stat Card: Total Companies -->
+                <div class="stat-card">
+                    <div class="stat-icon total-sub">
+                        <i class="lucide-building-2"></i>
+                    </div>
+                    <div>
+                        <div class="stat-number" id="stat-total-cos">0</div>
+                        <div class="stat-label">Target Companies</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Filters Bar -->
+            <div class="trends-filter-bar">
+                <div class="filter-group" style="flex-grow: 2;">
+                    <label for="search-input">Search Topics / Companies</label>
+                    <input type="text" id="search-input" placeholder="e.g. Google, Graph, Design...">
+                </div>
+                <div class="filter-group">
+                    <label for="company-select">Company</label>
+                    <select id="company-select">
+                        <option value="all">All Companies</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category-select">Category</label>
+                    <select id="category-select">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="frequency-select">Importance</label>
+                    <select id="frequency-select">
+                        <option value="all">All Importance</option>
+                        <option value="high">High Importance</option>
+                        <option value="medium">Medium Importance</option>
+                        <option value="low">Low Importance</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Trends Results Grid -->
+            <div class="trends-grid" id="trends-cards-list">
+                <!-- Loaded dynamically by hiring-trends.js -->
+                <div class="trend-card skeleton skeleton-card" style="height: 180px;"></div>
+                <div class="trend-card skeleton skeleton-card" style="height: 180px;"></div>
+                <div class="trend-card skeleton skeleton-card" style="height: 180px;"></div>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <!-- Dynamic Footer -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/hiring-trends.js"></script>
+</body>
+</html>

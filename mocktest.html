@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Mock Test Arena</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Simulate timed recruitment mock exams. Construct customized tests, track time limits, evaluate scores, and review responses.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 3rem 0; min-height: calc(100vh - 12rem);">
+        <div class="container" id="mock-test-root">
+            
+            <!-- Setup Mock Test View (Default) -->
+            <section class="mock-setup-card animate-fade" id="setup-view">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <i class="lucide-shield-alert" style="font-size:3rem; color:var(--primary); margin-bottom:0.75rem;"></i>
+                    <h1 style="font-size: 2rem; font-family:'Outfit';">Mock Test Arena</h1>
+                    <p style="color:var(--text-secondary); margin-top: 0.25rem;">Test your preparation under real exam constraints.</p>
+                </div>
+
+                <!-- Setup form -->
+                <div class="mock-form-group">
+                    <label>Select Question Count</label>
+                    <div class="mock-options-grid" id="qcount-selectors">
+                        <div class="mock-option-selector active" data-val="10">10 Questions</div>
+                        <div class="mock-option-selector" data-val="25">25 Questions</div>
+                        <div class="mock-option-selector" data-val="50">50 Questions</div>
+                    </div>
+                </div>
+
+                <div class="mock-form-group">
+                    <label>Select Categories (Select at least one)</label>
+                    <div class="mock-checkbox-list" id="category-selectors">
+                        <div class="mock-checkbox-item active" data-val="technical">
+                            <i class="lucide-check-square" style="color:var(--primary);"></i>
+                            <span>Technical</span>
+                        </div>
+                        <div class="mock-checkbox-item active" data-val="aptitude">
+                            <i class="lucide-check-square" style="color:var(--primary);"></i>
+                            <span>Aptitude</span>
+                        </div>
+                        <div class="mock-checkbox-item active" data-val="reasoning">
+                            <i class="lucide-check-square" style="color:var(--primary);"></i>
+                            <span>Reasoning</span>
+                        </div>
+                        <div class="mock-checkbox-item active" data-val="verbal">
+                            <i class="lucide-check-square" style="color:var(--primary);"></i>
+                            <span>Verbal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mock-form-group" style="margin-top: 2rem;">
+                    <button class="btn btn-primary" id="start-test-btn" style="width:100%; padding:0.9rem;">
+                        <i class="lucide-play-circle"></i>
+                        <span>Start Mock Test</span>
+                    </button>
+                </div>
+
+                <div style="margin-top:1.5rem; padding: 1rem; border-radius: var(--border-radius-md); background-color: var(--bg-primary); border: 1px solid var(--border-color); font-size: 0.8rem; color:var(--text-secondary); line-height: 1.5;">
+                    <p><strong><i class="lucide-info" style="font-size:0.9rem; color:var(--primary); margin-right: 0.25rem; vertical-align: middle;"></i> Rules & Guidelines:</strong></p>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+                        <li>Questions are randomly generated across selected categories.</li>
+                        <li>You get 1 minute per question (e.g. 10 mins for 10 Qs).</li>
+                        <li>You can flag questions to review them later using the navigation map.</li>
+                        <li>The test will auto-submit when the timer expires.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Timed Active Test View (Initially Hidden) -->
+            <section class="hidden animate-fade" id="active-test-view">
+                
+                <!-- Sticky test header panel -->
+                <div class="mock-test-header" style="margin-bottom: 2rem; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); padding: 1rem 1.5rem;">
+                    <div class="mock-header-grid">
+                        <div>
+                            <h2 style="font-size:1.5rem; font-family:'Outfit';" id="mock-subject-title">Mock Placement Test</h2>
+                            <span style="font-size:0.8rem; color:var(--text-secondary); font-weight:600;" id="mock-progress-lbl">Question 1 of 10</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap: 1rem;">
+                            <div class="timer-box" id="test-timer">
+                                <i class="lucide-timer"></i>
+                                <span id="timer-display">10:00</span>
+                            </div>
+                            <button class="btn btn-accent" id="submit-test-btn" style="padding:0.5rem 1rem; font-size:0.875rem;">
+                                <span>Submit Test</span>
+                                <i class="lucide-check-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Practice Layout split -->
+                <div class="dashboard-layout" style="grid-template-columns: 1.7fr 0.8fr; margin-bottom: 2rem;">
+                    
+                    <!-- Question statement area -->
+                    <div class="question-workspace" style="max-width:100%; box-shadow:var(--shadow-sm);" id="mock-workspace-card">
+                        <!-- Questions injected dynamically by js -->
+                        <div class="workspace-header">
+                            <span class="card-badge badge-medium" id="mock-q-difficulty">Medium</span>
+                            <span style="font-size:0.8rem; color:var(--text-secondary);" id="mock-q-topic">Topic Name</span>
+                        </div>
+                        <div class="workspace-question-text" id="mock-q-text">Loading question text...</div>
+                        
+                        <div class="options-container" id="mock-options-container">
+                            <!-- Options options buttons -->
+                        </div>
+
+                        <div class="workspace-footer" style="border-top:1px solid var(--border-color); padding-top:1.5rem;">
+                            <button class="btn btn-secondary" id="mock-flag-btn">
+                                <i class="lucide-flag"></i>
+                                <span>Flag for Review</span>
+                            </button>
+                            <div class="nav-arrows">
+                                <button class="btn btn-secondary" id="mock-prev-btn">
+                                    <i class="lucide-chevron-left"></i>
+                                    <span>Previous</span>
+                                </button>
+                                <button class="btn btn-secondary" id="mock-next-btn">
+                                    <span>Next</span>
+                                    <i class="lucide-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right panel navigator -->
+                    <div class="sidebar-panel" style="box-shadow:var(--shadow-sm); height: fit-content;">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Question Navigator</h3>
+                            <i class="lucide-navigation"></i>
+                        </div>
+                        <div class="mock-question-navigator" id="mock-grid-navigator">
+                            <!-- Grid buttons injected by js -->
+                        </div>
+                        <div style="border-top:1px solid var(--border-color); padding-top:1rem; margin-top:0.5rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.75rem; color:var(--text-secondary);">
+                            <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px; height:12px; border-radius:3px; background-color:var(--bg-primary); border:1px solid var(--border-color);"></div> Unvisited</div>
+                            <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px; height:12px; border-radius:3px; background-color:rgba(37,99,235,0.1); border:1px solid var(--primary);"></div> Answered</div>
+                            <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px; height:12px; border-radius:3px; background-color:rgba(245,158,11,0.1); border:1px solid var(--warning);"></div> Flagged for Review</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Mock Test Results Dashboard (Initially Hidden) -->
+            <section class="hidden animate-fade" id="results-view">
+                <!-- Results cards injected dynamically by js -->
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/mocktest.js"></script>
+</body>
+</html>

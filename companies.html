@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Hiring Companies</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Explore top companies, check their corporate sites, and jump straight into their active careers pages to find job openings.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom page-level styles -->
+    <style>
+        .companies-section-header {
+            max-width: 800px;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .search-wrapper {
+            margin-bottom: 3.5rem;
+            max-width: 500px;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 0.95rem 1.25rem 0.95rem 3rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+            background-color: var(--bg-primary);
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 1.15rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Glassmorphic Premium Company Card styling */
+        .company-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-xl);
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.25);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .company-card:hover::before {
+            opacity: 1;
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .company-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+
+        .company-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .company-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .company-actions a {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-website {
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-website:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .btn-website:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-careers {
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-careers:hover {
+            opacity: 0.95;
+            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            background: var(--bg-secondary);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--border-radius-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 4rem 0;">
+        <div class="container">
+            
+            <!-- Section Title Header -->
+            <div class="companies-section-header">
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.75rem; font-family:'Outfit';">Target Companies</h1>
+                <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6;">Discover hiring requirements and career openings. Browse official corporate landing pages and jump straight into active job boards at top product firms and startups.</p>
+            </div>
+
+            <!-- Search Area -->
+            <div class="search-wrapper">
+                <input type="text" id="company-search" placeholder="Search companies by name...">
+                <i class="lucide-search"></i>
+            </div>
+
+            <!-- Companies Grid container -->
+            <div class="companies-grid" id="companies-grid">
+                <!-- Skeletons loaded before JS loads the data -->
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+                <div class="company-card skeleton skeleton-card" style="height: 160px;"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/companies.js"></script>
+</body>
+</html>

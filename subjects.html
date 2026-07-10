@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Subjects Dashboard</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Explore subject materials and topic lists for the chosen category. Evaluate difficulty distribution and check progress.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 3rem 0;">
+        <div class="container">
+            
+            <!-- Breadcrumbs / Back button -->
+            <div style="margin-bottom: 2rem;">
+                <a href="categories.html" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.85rem; border-radius: var(--border-radius-sm);">
+                    <i class="lucide-arrow-left"></i>
+                    <span>Back to Categories</span>
+                </a>
+            </div>
+
+            <!-- Page Title Area -->
+            <div style="max-width: 800px; margin-bottom: 3rem;">
+                <h1 id="category-title" style="font-size: 2.25rem; margin-bottom: 0.75rem; font-family:'Outfit';">Category Subjects</h1>
+                <p id="category-desc" style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Browse subjects under this preparation path to analyze their difficulty breakdowns and launch your training workspace.</p>
+            </div>
+
+            <!-- Subjects Grid -->
+            <div class="subject-grid" id="subjects-container">
+                <!-- Dynamically loaded by subjects.js -->
+                <div class="subject-card skeleton skeleton-card" style="height: 320px;"></div>
+                <div class="subject-card skeleton skeleton-card" style="height: 320px;"></div>
+                <div class="subject-card skeleton skeleton-card" style="height: 320px;"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/subjects.js"></script>
+</body>
+</html>

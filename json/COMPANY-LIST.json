@@ -1,0 +1,502 @@
+[
+  {
+    "company_name": "Glean",
+    "landing_page": "https://www.glean.com",
+    "careers_page": "https://www.glean.com/careers"
+  },
+  {
+    "company_name": "Rippling",
+    "landing_page": "https://www.rippling.com",
+    "careers_page": "https://www.rippling.com/careers"
+  },
+  {
+    "company_name": "Rubrik",
+    "landing_page": "https://www.rubrik.com",
+    "careers_page": "https://www.rubrik.com/careers"
+  },
+  {
+    "company_name": "Harness",
+    "landing_page": "https://harness.io",
+    "careers_page": "https://harness.io/careers"
+  },
+  {
+    "company_name": "ThoughtSpot",
+    "landing_page": "https://www.thoughtspot.com",
+    "careers_page": "https://www.thoughtspot.com/careers"
+  },
+  {
+    "company_name": "Verkada",
+    "landing_page": "https://www.verkada.com",
+    "careers_page": "https://www.verkada.com/careers"
+  },
+  {
+    "company_name": "Rocketlane",
+    "landing_page": "https://www.rocketlane.com",
+    "careers_page": "https://www.rocketlane.com/careers"
+  },
+  {
+    "company_name": "BreachLock",
+    "landing_page": "https://www.breachlock.com",
+    "careers_page": "https://www.breachlock.com/careers"
+  },
+  {
+    "company_name": "Cribl",
+    "landing_page": "https://cribl.io",
+    "careers_page": "https://cribl.io/careers"
+  },
+  {
+    "company_name": "Deel",
+    "landing_page": "https://www.deel.com",
+    "careers_page": "https://www.deel.com/careers"
+  },
+  {
+    "company_name": "Hightouch",
+    "landing_page": "https://hightouch.com",
+    "careers_page": "https://hightouch.com/careers"
+  },
+  {
+    "company_name": "Attentive.ai",
+    "landing_page": "https://attentive.ai",
+    "careers_page": "https://attentive.ai/careers"
+  },
+  {
+    "company_name": "BigID",
+    "landing_page": "https://bigid.com",
+    "careers_page": "https://bigid.com/careers"
+  },
+  {
+    "company_name": "Steadily",
+    "landing_page": "https://www.steadily.com",
+    "careers_page": "https://www.steadily.com/careers"
+  },
+  {
+    "company_name": "VAST Data",
+    "landing_page": "https://vastdata.com",
+    "careers_page": "https://vastdata.com/careers"
+  },
+  {
+    "company_name": "Anduril Industries",
+    "landing_page": "https://www.anduril.com",
+    "careers_page": "https://www.anduril.com/careers"
+  },
+  {
+    "company_name": "Spendbase",
+    "landing_page": "https://spendbase.co",
+    "careers_page": "https://spendbase.co/careers"
+  },
+  {
+    "company_name": "Contentstack",
+    "landing_page": "https://www.contentstack.com",
+    "careers_page": "https://www.contentstack.com/company/careers"
+  },
+  {
+    "company_name": "Kairos Power",
+    "landing_page": "https://kairospower.com",
+    "careers_page": "https://kairospower.com/careers"
+  },
+  {
+    "company_name": "Stoke Space",
+    "landing_page": "https://www.stokespace.com",
+    "careers_page": "https://www.stokespace.com/careers"
+  },
+  {
+    "company_name": "Mercury",
+    "landing_page": "https://mercury.com",
+    "careers_page": "https://mercury.com/jobs"
+  },
+  {
+    "company_name": "Gem",
+    "landing_page": "https://www.gem.com",
+    "careers_page": "https://www.gem.com/careers"
+  },
+  {
+    "company_name": "Ridgeline",
+    "landing_page": "https://www.ridgelineapps.com",
+    "careers_page": "https://www.ridgelineapps.com/careers"
+  },
+  {
+    "company_name": "Landing AI",
+    "landing_page": "https://landing.ai",
+    "careers_page": "https://landing.ai/careers"
+  },
+  {
+    "company_name": "Lunar Energy",
+    "landing_page": "https://www.lunarenergy.com",
+    "careers_page": "https://www.lunarenergy.com/careers"
+  },
+  {
+    "company_name": "Commonwealth Fusion",
+    "landing_page": "https://cfsenergy.com",
+    "careers_page": "https://cfsenergy.com/careers"
+  },
+  {
+    "company_name": "MaintainX",
+    "landing_page": "https://www.getmaintainx.com",
+    "careers_page": "https://www.getmaintainx.com/careers"
+  },
+  {
+    "company_name": "Fingerprint",
+    "landing_page": "https://fingerprint.com",
+    "careers_page": "https://fingerprint.com/careers"
+  },
+  {
+    "company_name": "Zip",
+    "landing_page": "https://ziphq.com",
+    "careers_page": "https://ziphq.com/careers"
+  },
+  {
+    "company_name": "Stensul",
+    "landing_page": "https://stensul.com",
+    "careers_page": "https://stensul.com/careers"
+  },
+  {
+    "company_name": "RudderStack",
+    "landing_page": "https://www.rudderstack.com",
+    "careers_page": "https://www.rudderstack.com/careers"
+  },
+  {
+    "company_name": "Hippocratic AI",
+    "landing_page": "https://www.hippocraticai.com",
+    "careers_page": "https://www.hippocraticai.com/careers"
+  },
+  {
+    "company_name": "OpenSpace",
+    "landing_page": "https://www.openspace.ai",
+    "careers_page": "https://www.openspace.ai/careers"
+  },
+  {
+    "company_name": "Cellares",
+    "landing_page": "https://www.cellares.com",
+    "careers_page": "https://www.cellares.com/careers"
+  },
+  {
+    "company_name": "Skyflow",
+    "landing_page": "https://www.skyflow.com",
+    "careers_page": "https://www.skyflow.com/careers"
+  },
+  {
+    "company_name": "Strive Health",
+    "landing_page": "https://strivehealth.com",
+    "careers_page": "https://strivehealth.com/careers"
+  },
+  {
+    "company_name": "Foundation AI",
+    "landing_page": "https://foundationai.com",
+    "careers_page": "https://foundationai.com/careers"
+  },
+  {
+    "company_name": "Pave",
+    "landing_page": "https://www.pave.com",
+    "careers_page": "https://www.pave.com/careers"
+  },
+  {
+    "company_name": "Watershed",
+    "landing_page": "https://watershed.com",
+    "careers_page": "https://watershed.com/careers"
+  },
+  {
+    "company_name": "Hyro",
+    "landing_page": "https://www.hyro.ai",
+    "careers_page": "https://www.hyro.ai/careers"
+  },
+  {
+    "company_name": "BuildOps",
+    "landing_page": "https://buildops.com",
+    "careers_page": "https://buildops.com/careers"
+  },
+  {
+    "company_name": "People.ai",
+    "landing_page": "https://people.ai",
+    "careers_page": "https://people.ai/careers"
+  },
+  {
+    "company_name": "Cosm",
+    "landing_page": "https://www.cosm.com",
+    "careers_page": "https://www.cosm.com/careers"
+  },
+  {
+    "company_name": "Orca Security",
+    "landing_page": "https://orca.security",
+    "careers_page": "https://orca.security/careers"
+  },
+  {
+    "company_name": "Cresta",
+    "landing_page": "https://cresta.ai",
+    "careers_page": "https://cresta.ai/careers"
+  },
+  {
+    "company_name": "Valor PayTech",
+    "landing_page": "https://valorpaytech.com",
+    "careers_page": "https://valorpaytech.com/careers"
+  },
+  {
+    "company_name": "Sardine",
+    "landing_page": "https://www.sardine.ai",
+    "careers_page": "https://www.sardine.ai/careers"
+  },
+  {
+    "company_name": "Abacus.AI",
+    "landing_page": "https://abacus.ai",
+    "careers_page": "https://abacus.ai/careers"
+  },
+  {
+    "company_name": "Crossbeam",
+    "landing_page": "https://www.crossbeam.com",
+    "careers_page": "https://www.crossbeam.com/careers"
+  },
+  {
+    "company_name": "LineVision",
+    "landing_page": "https://www.linevisioninc.com",
+    "careers_page": "https://www.linevisioninc.com/careers"
+  },
+  {
+    "company_name": "DevRev",
+    "landing_page": "https://devrev.ai",
+    "careers_page": "https://devrev.ai/careers"
+  },
+  {
+    "company_name": "Axonius",
+    "landing_page": "https://www.axonius.com",
+    "careers_page": "https://www.axonius.com/careers"
+  },
+  {
+    "company_name": "Netskope",
+    "landing_page": "https://www.netskope.com",
+    "careers_page": "https://www.netskope.com/company/careers"
+  },
+  {
+    "company_name": "Certa",
+    "landing_page": "https://www.getcerta.com",
+    "careers_page": "https://www.getcerta.com/careers"
+  },
+  {
+    "company_name": "Metropolis",
+    "landing_page": "https://www.metropolis.io",
+    "careers_page": "https://www.metropolis.io/careers"
+  },
+  {
+    "company_name": "CureMetrix",
+    "landing_page": "https://curemetrix.com",
+    "careers_page": "https://curemetrix.com/careers"
+  },
+  {
+    "company_name": "Apex Fintech",
+    "landing_page": "https://apexfintechsolutions.com",
+    "careers_page": "https://apexfintechsolutions.com/careers"
+  },
+  {
+    "company_name": "Sendbird",
+    "landing_page": "https://sendbird.com",
+    "careers_page": "https://sendbird.com/careers"
+  },
+  {
+    "company_name": "Postman",
+    "landing_page": "https://www.postman.com",
+    "careers_page": "https://www.postman.com/careers"
+  },
+  {
+    "company_name": "Samsara",
+    "landing_page": "https://www.samsara.com",
+    "careers_page": "https://www.samsara.com/careers"
+  },
+  {
+    "company_name": "Unqork",
+    "landing_page": "https://www.unqork.com",
+    "careers_page": "https://www.unqork.com/careers"
+  },
+  {
+    "company_name": "Pinecone",
+    "landing_page": "https://www.pinecone.io",
+    "careers_page": "https://www.pinecone.io/careers"
+  },
+  {
+    "company_name": "Weaviate",
+    "landing_page": "https://weaviate.io",
+    "careers_page": "https://weaviate.io/company/careers"
+  },
+  {
+    "company_name": "Qdrant",
+    "landing_page": "https://qdrant.tech",
+    "careers_page": "https://qdrant.tech/careers"
+  },
+  {
+    "company_name": "LangChain",
+    "landing_page": "https://www.langchain.com",
+    "careers_page": "https://www.langchain.com/careers"
+  },
+  {
+    "company_name": "LlamaIndex",
+    "landing_page": "https://www.llamaindex.ai",
+    "careers_page": "https://www.llamaindex.ai/careers"
+  },
+  {
+    "company_name": "Vercel",
+    "landing_page": "https://vercel.com",
+    "careers_page": "https://vercel.com/careers"
+  },
+  {
+    "company_name": "Netlify",
+    "landing_page": "https://www.netlify.com",
+    "careers_page": "https://www.netlify.com/careers"
+  },
+  {
+    "company_name": "Supabase",
+    "landing_page": "https://supabase.com",
+    "careers_page": "https://supabase.com/careers"
+  },
+  {
+    "company_name": "PlanetScale",
+    "landing_page": "https://planetscale.com",
+    "careers_page": "https://planetscale.com/careers"
+  },
+  {
+    "company_name": "Railway",
+    "landing_page": "https://railway.app",
+    "careers_page": "https://railway.app/careers"
+  },
+  {
+    "company_name": "Fly.io",
+    "landing_page": "https://fly.io",
+    "careers_page": "https://fly.io/jobs"
+  },
+  {
+    "company_name": "Linear",
+    "landing_page": "https://linear.app",
+    "careers_page": "https://linear.app/careers"
+  },
+  {
+    "company_name": "Clerk",
+    "landing_page": "https://clerk.com",
+    "careers_page": "https://clerk.com/careers"
+  },
+  {
+    "company_name": "Auth0",
+    "landing_page": "https://auth0.com",
+    "careers_page": "https://auth0.com/careers"
+  },
+  {
+    "company_name": "Retool",
+    "landing_page": "https://retool.com",
+    "careers_page": "https://retool.com/careers"
+  },
+  {
+    "company_name": "Zapier",
+    "landing_page": "https://zapier.com",
+    "careers_page": "https://zapier.com/careers"
+  },
+  {
+    "company_name": "Make",
+    "landing_page": "https://www.make.com",
+    "careers_page": "https://www.make.com/en/careers"
+  },
+  {
+    "company_name": "Tailscale",
+    "landing_page": "https://tailscale.com",
+    "careers_page": "https://tailscale.com/careers"
+  },
+  {
+    "company_name": "Graphite",
+    "landing_page": "https://graphite.dev",
+    "careers_page": "https://graphite.dev/careers"
+  },
+  {
+    "company_name": "Checkly",
+    "landing_page": "https://www.checklyhq.com",
+    "careers_page": "https://www.checklyhq.com/careers"
+  },
+  {
+    "company_name": "LogRocket",
+    "landing_page": "https://logrocket.com",
+    "careers_page": "https://logrocket.com/careers"
+  },
+  {
+    "company_name": "Sentry",
+    "landing_page": "https://sentry.io",
+    "careers_page": "https://sentry.io/careers"
+  },
+  {
+    "company_name": "LaunchDarkly",
+    "landing_page": "https://launchdarkly.com",
+    "careers_page": "https://launchdarkly.com/careers"
+  },
+  {
+    "company_name": "Split.io",
+    "landing_page": "https://www.split.io",
+    "careers_page": "https://www.split.io/careers"
+  },
+  {
+    "company_name": "Flagsmith",
+    "landing_page": "https://www.flagsmith.com",
+    "careers_page": "https://www.flagsmith.com/careers"
+  },
+  {
+    "company_name": "PostHog",
+    "landing_page": "https://posthog.com",
+    "careers_page": "https://posthog.com/careers"
+  },
+  {
+    "company_name": "Mixpanel",
+    "landing_page": "https://mixpanel.com",
+    "careers_page": "https://mixpanel.com/careers"
+  },
+  {
+    "company_name": "Amplitude",
+    "landing_page": "https://amplitude.com",
+    "careers_page": "https://amplitude.com/careers"
+  },
+  {
+    "company_name": "Segment",
+    "landing_page": "https://segment.com",
+    "careers_page": "https://segment.com/careers"
+  },
+  {
+    "company_name": "Hevo Data",
+    "landing_page": "https://hevodata.com",
+    "careers_page": "https://hevodata.com/careers"
+  },
+  {
+    "company_name": "Fivetran",
+    "landing_page": "https://www.fivetran.com",
+    "careers_page": "https://www.fivetran.com/careers"
+  },
+  {
+    "company_name": "Airbyte",
+    "landing_page": "https://airbyte.com",
+    "careers_page": "https://airbyte.com/careers"
+  },
+  {
+    "company_name": "dbt Labs",
+    "landing_page": "https://www.getdbt.com",
+    "careers_page": "https://www.getdbt.com/careers"
+  },
+  {
+    "company_name": "Prefect",
+    "landing_page": "https://www.prefect.io",
+    "careers_page": "https://www.prefect.io/careers"
+  },
+  {
+    "company_name": "Dagster",
+    "landing_page": "https://dagster.io",
+    "careers_page": "https://dagster.io/careers"
+  },
+  {
+    "company_name": "Astronomer",
+    "landing_page": "https://www.astronomer.io",
+    "careers_page": "https://www.astronomer.io/careers"
+  },
+  {
+    "company_name": "Temporal",
+    "landing_page": "https://temporal.io",
+    "careers_page": "https://temporal.io/careers"
+  },
+  {
+    "company_name": "Neon",
+    "landing_page": "https://neon.tech",
+    "careers_page": "https://neon.tech/careers"
+  },
+  {
+    "company_name": "Chroma",
+    "landing_page": "https://www.trychroma.com",
+    "careers_page": "https://www.trychroma.com/careers"
+  }
+]

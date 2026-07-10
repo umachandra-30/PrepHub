@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Performance Tracker</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="View placement preparation progress. Check accuracy percentages, subject-wise statistics, and recently solved lists.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 3rem 0;">
+        <div class="container">
+            
+            <!-- Page Title Header -->
+            <div style="max-width: 700px; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+                <div>
+                    <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; font-family:'Outfit';">Performance Dashboard</h1>
+                    <p style="color:var(--text-secondary); line-height: 1.6;">Review your category completion statistics, bookmark rates, and accuracy metrics. Evaluate your preparation levels across individual subjects.</p>
+                </div>
+                <button class="btn btn-secondary" id="clear-progress-btn" style="padding: 0.55rem 1.25rem; font-size: 0.85rem; border-color: var(--danger); color: var(--danger);">
+                    <i class="lucide-refresh-cw"></i>
+                    <span>Reset Progress Data</span>
+                </button>
+            </div>
+
+            <!-- Upper Grid (Overall & Category stats) -->
+            <div class="progress-grid">
+                
+                <!-- Overall metrics card -->
+                <div class="progress-card" id="overall-progress-card">
+                    <div class="progress-header">
+                        <h3 style="font-family:'Outfit';">Overall Progress</h3>
+                    </div>
+                    <div class="progress-circle-lg" id="overall-progress-circle" style="--progress-val: 0;">
+                        <div class="progress-circle-text" id="overall-pct-display">0%</div>
+                    </div>
+                    <div style="margin-top: 2rem;" id="overall-metrics-list">
+                        <!-- Filled dynamically by progress.js -->
+                    </div>
+                </div>
+
+                <!-- Category-wise progress card -->
+                <div class="progress-card" id="category-progress-card">
+                    <div class="progress-header">
+                        <h3 style="font-family:'Outfit';">Progress by Category</h3>
+                    </div>
+                    <div class="subject-progress-list" id="category-bars-list" style="margin-top: 1rem;">
+                        <!-- Filled dynamically by progress.js -->
+                    </div>
+                </div>
+
+                <!-- User Profile Card -->
+                <div class="progress-card" id="user-profile-card">
+                    <div class="progress-header">
+                        <h3 style="font-family:'Outfit';">User Profile</h3>
+                    </div>
+                    <div id="profile-logged-in" class="hidden">
+                        <form id="profile-form" style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <label for="profile-name" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Full Name</label>
+                                <input type="text" id="profile-name" placeholder="Enter your name" style="width: 100%; padding: 0.75rem; border-radius: var(--border-radius-md); border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-family: inherit; font-size: 0.9rem;">
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <label for="profile-email" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Email Address</label>
+                                <input type="email" id="profile-email" readonly style="width: 100%; padding: 0.75rem; border-radius: var(--border-radius-md); border: 1px solid var(--border-color); background: var(--bg-primary); opacity: 0.7; color: var(--text-primary); font-family: inherit; font-size: 0.9rem; cursor: not-allowed;" title="Email is managed by Cognito and cannot be modified here.">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem; justify-content: center; width: 100%; padding: 0.75rem;">
+                                <i class="lucide-save" style="font-size: 1rem;"></i>
+                                <span>Save Changes</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div id="profile-logged-out" style="text-align: center; padding: 2.5rem 1rem;">
+                        <i class="lucide-lock" style="font-size: 2.5rem; color: var(--text-secondary); margin-bottom: 1rem; display: inline-block;"></i>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Access Locked</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Login via AWS Cognito to unlock cloud-syncing and customize your profile.</p>
+                        <button class="btn btn-primary" onclick="loginUser()" style="margin: 0 auto; padding: 0.55rem 1.25rem; font-size: 0.85rem; justify-content: center; display: flex;">
+                            <i class="lucide-log-in" style="margin-right: 0.35rem;"></i>
+                            <span>Login Now</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Subject-wise Detailed Stats Table -->
+            <div class="progress-card" style="margin-top: 2.5rem;">
+                <div class="progress-header" style="border-bottom: 1px solid var(--border-color); padding-bottom:1rem; margin-bottom: 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+                    <h3 style="font-family:'Outfit';">Subject-wise Completion</h3>
+                    <span style="font-size:0.75rem; color:var(--text-secondary); font-weight:600;">30 Subjects Total</span>
+                </div>
+                
+                <div class="subject-progress-list" id="subject-detailed-list">
+                    <!-- Skeletons loaded initially -->
+                    <div class="subject-progress-item skeleton-text skeleton"></div>
+                    <div class="subject-progress-item skeleton-text skeleton"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/progress.js"></script>
+</body>
+</html>

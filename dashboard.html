@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Dashboard</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Ace your technical, quantitative, logical, and verbal placement rounds with PrepHub. Practice actual interview questions from top MNCs with step-by-step solutions.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main>
+        
+        <!-- Hero Banner Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">Elevate Your <span>Placement Prep</span> to the Next Level</h1>
+                    <p class="hero-subtitle">Master core engineering subjects, quantitative aptitude, logical reasoning, and verbal analysis. Learn with structure, track your progress, and get hired by top MNCs.</p>
+                    <div class="hero-btns">
+                        <a href="categories.html" class="btn btn-primary">
+                            <span>Explore Categories</span>
+                            <i class="lucide-compass"></i>
+                        </a>
+                        <a href="mocktest.html" class="btn btn-secondary">
+                            <span>Take Mock Test</span>
+                            <i class="lucide-trophy"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-design flex-center">
+                    <!-- Premium Glassmorphic Card Visual -->
+                    <div class="qotd-card" style="width: 100%; max-width: 420px; text-align: left; transform: rotate(1deg); box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.2);">
+                        <div class="card-badge badge-easy">
+                            <i class="lucide-sparkles"></i>
+                            <span>Placement Success Pack</span>
+                        </div>
+                        <h3 style="font-size:1.25rem; margin-bottom: 0.5rem; font-family:'Outfit';">Interactive Learning</h3>
+                        <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1rem; line-height:1.5;">Track accuracy levels, bookmark challenging problems, and simulate timed placement tests with our advanced mock engines.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-color); padding-top:1rem; font-size:0.8rem; color:var(--text-secondary);">
+                            <span><i class="lucide-check-circle" style="color:var(--success); margin-right: 0.25rem;"></i> 100% Free & Open</span>
+                            <span><i class="lucide-database" style="color:var(--primary); margin-right: 0.25rem;"></i> 2000+ Questions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            
+            <!-- Dynamic Stats Section -->
+            <section class="stats-grid" id="stats-grid">
+                <!-- Stat Card: Categories -->
+                <div class="stat-card skeleton skeleton-card"></div>
+                <!-- Stat Card: Subjects -->
+                <div class="stat-card skeleton skeleton-card"></div>
+                <!-- Stat Card: Questions -->
+                <div class="stat-card skeleton skeleton-card"></div>
+            </section>
+            
+            <!-- Featured Categories Quick Launch -->
+            <section style="margin-bottom: 3.5rem;">
+                <div class="section-header">
+                    <h2 class="section-title">Preparation Paths</h2>
+                    <a href="categories.html" class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.85rem;">View All</a>
+                </div>
+                <div class="categories-grid" id="featured-categories-list">
+                    <!-- Injected dynamically by main.js -->
+                    <div class="category-card skeleton skeleton-card"></div>
+                    <div class="category-card skeleton skeleton-card"></div>
+                    <div class="category-card skeleton skeleton-card"></div>
+                    <div class="category-card skeleton skeleton-card"></div>
+                </div>
+            </section>
+
+            <!-- Question of the Day -->
+            <section style="margin-bottom: 3.5rem;">
+                <div class="section-header">
+                    <h2 class="section-title">Question of the Day</h2>
+                </div>
+                <div id="qotd-container">
+                    <!-- Injected dynamically by main.js -->
+                    <div class="qotd-card skeleton skeleton-card" style="height: 250px;"></div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Preparation Paths</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Select a path to master technical skills, reasoning questions, verbal concepts, or quantitative aptitude. Structured learning for placement exams.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 4rem 0;">
+        <div class="container">
+            
+            <!-- Section Title Header -->
+            <div style="max-width: 700px; margin-bottom: 3.5rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.75rem; font-family:'Outfit';">Choose Your Learning Path</h1>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">We have organized placement preparation questions into four primary domains. Select any pathway below to browse individual subjects, check difficulty distributions, and begin practicing.</p>
+            </div>
+
+            <!-- Categories Grid container -->
+            <div class="categories-grid" id="categories-list-container" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Filled dynamically by categories.js -->
+                <div class="category-card skeleton skeleton-card"></div>
+                <div class="category-card skeleton skeleton-card"></div>
+                <div class="category-card skeleton skeleton-card"></div>
+                <div class="category-card skeleton skeleton-card"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>

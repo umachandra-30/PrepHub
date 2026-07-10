@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Practice Workspace</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Sharpen your engineering placement skills in our practice playground. Review question logs, select options, and check full explanations.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Specific page layout to fill remaining height */
+        body {
+            height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+            height: calc(100vh - 4.5rem);
+            overflow: hidden;
+        }
+        /* Mobile floating toggler */
+        .sidebar-trigger {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 150;
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .sidebar-trigger:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar-trigger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Workspace -->
+    <main>
+        
+        <div class="practice-container">
+            
+            <!-- Left Panel Sidebar Drawer -->
+            <aside class="practice-sidebar" id="q-sidebar">
+                
+                <div class="sidebar-filters">
+                    <h3 style="font-size: 1.1rem; font-family:'Outfit';">Questions</h3>
+                    
+                    <!-- Search input -->
+                    <div class="sidebar-search">
+                        <input type="text" placeholder="Search questions..." id="q-search-box">
+                        <i class="lucide-search"></i>
+                    </div>
+                    
+                    <!-- Dropdown Filters -->
+                    <div class="filter-selects">
+                        <select id="filter-difficulty">
+                            <option value="">All Difficulties</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                        <select id="filter-topic">
+                            <option value="">All Topics</option>
+                        </select>
+                        <select id="filter-company">
+                            <option value="">All Companies</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Questions List Container -->
+                <div class="sidebar-list-container" id="q-list">
+                    <!-- Skeletons loaded initially -->
+                    <div style="padding: 0.5rem 1rem;"><div class="skeleton skeleton-text" style="height:2rem; border-radius:8px;"></div></div>
+                    <div style="padding: 0.5rem 1rem;"><div class="skeleton skeleton-text" style="height:2rem; border-radius:8px;"></div></div>
+                    <div style="padding: 0.5rem 1rem;"><div class="skeleton skeleton-text" style="height:2rem; border-radius:8px;"></div></div>
+                </div>
+
+            </aside>
+
+            <!-- Right Panel Core Practice Area -->
+            <section class="practice-content" id="practice-viewport">
+                
+                <!-- Main Workspace Card -->
+                <div class="question-workspace" id="workspace-card">
+                    <!-- Skeletons loaded initially -->
+                    <div class="workspace-header">
+                        <div class="skeleton skeleton-title" style="width:40%;"></div>
+                        <div class="skeleton skeleton-title" style="width:15%;"></div>
+                    </div>
+                    <div class="skeleton skeleton-text" style="height: 4rem; margin-bottom: 2rem;"></div>
+                    <div class="skeleton skeleton-text" style="height: 3rem; margin-bottom: 1rem;"></div>
+                    <div class="skeleton skeleton-text" style="height: 3rem; margin-bottom: 1rem;"></div>
+                    <div class="skeleton skeleton-text" style="height: 3rem; margin-bottom: 1rem;"></div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Mobile Floating Sidebar Toggler -->
+    <button class="icon-btn sidebar-trigger" id="sidebar-drawer-btn" aria-label="Toggle Sidebar List">
+        <i class="lucide-list"></i>
+    </button>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/questions.js"></script>
+</body>
+</html>

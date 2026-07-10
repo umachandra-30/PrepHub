@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Bookmarked Questions</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="View your saved interview questions. Revise concepts, practice options, and review solutions for bookmarked records.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Content Arena -->
+    <main style="padding: 3rem 0; min-height: calc(100vh - 12rem);">
+        <div class="container">
+            
+            <!-- Section Header -->
+            <div style="max-width: 700px; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+                <div>
+                    <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; font-family:'Outfit';">My Bookmarks</h1>
+                    <p style="color:var(--text-secondary); line-height: 1.6;">Review, practice, and manage your saved questions. Challenge yourself directly or jump back into the full practice environment.</p>
+                </div>
+                <button class="btn btn-secondary" id="clear-bookmarks-btn" style="padding: 0.55rem 1.25rem; font-size: 0.85rem; border-color: var(--danger); color: var(--danger);">
+                    <i class="lucide-trash-2"></i>
+                    <span>Remove All Bookmarks</span>
+                </button>
+            </div>
+
+            <!-- Bookmarks Grid -->
+            <div class="bookmarks-grid" id="bookmarks-container">
+                <!-- Dynamically loaded by bookmarks.js -->
+                <div class="bookmark-card skeleton skeleton-card" style="height: 180px;"></div>
+                <div class="bookmark-card skeleton skeleton-card" style="height: 180px;"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/bookmarks.js"></script>
+</body>
+</html>
