@@ -302,68 +302,7 @@ Amazon.com uses DynamoDB to manage shopping carts, session states, and customer 
 
 ---
 
-### GitHub Actions (CI/CD)
 
-#### Introduction & Purpose
-GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
-
-#### Features
-- **Workflow Automation:** Trigger actions on code commits, pull requests, or manually.
-- **Runner Environments:** Execute steps on hosted Linux, Windows, or macOS containers.
-- **Secret Management:** Securely stores AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) for deployments.
-
-#### Why We Selected It (Architecture Standard)
-Automates the testing and deployment of frontend assets to S3 and updates Lambda backend zip files, reducing deployment steps to a simple `git push`.
-
-#### How it Works Internally
-A YAML workflow configuration located in `.github/workflows/deploy.yml` specifies instructions. When a push to the main branch is registered, GitHub runners pull the code, test it, construct a ZIP file for the Lambda code, upload it via AWS CLI, and copy static HTML files to S3.
-
-#### How it Integrates with the Project
-A standard deployment workflow configuration:
-```yaml
-name: Deploy PrepHub Stack
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-      - name: Deploy Frontend to S3
-        run: |
-          aws s3 sync . s3://my-prephub-bucket --exclude "backend/*" --exclude ".git/*" --delete
-
-      - name: Deploy Backend Lambda
-        run: |
-          cd backend
-          zip -r lambda.zip index.js package.json
-          aws lambda update-function-code --function-name preparationHubAPI --zip-file fileb://lambda.zip
-```
-
-#### Advantages
-- Standardizes delivery cycles.
-- Detects compilation or testing errors before production updates.
-
-#### Limitations
-- Execution time limits on free repositories (2,000 minutes/month).
-
-#### Best Practices
-- Never commit AWS access keys to code repositories; always use IAM roles via OIDC token federation.
-- Verify security configurations before executing dependency installations.
-
----
 
 ## 5. Service Interaction Flow
 
