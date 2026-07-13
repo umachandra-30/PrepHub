@@ -202,13 +202,15 @@ async function loadQuestionOfTheDay(registry) {
 
     document.getElementById('qotd-bookmark').addEventListener('click', (e) => {
         const active = toggleBookmark(q, selectedSub.subjectSlug, selectedSub.name, selectedSub.categorySlug);
-        const icon = e.currentTarget.querySelector('i');
-        if (active) {
-            icon.style.fill = 'var(--primary)';
-            icon.style.color = 'var(--primary)';
-        } else {
-            icon.style.fill = '';
-            icon.style.color = '';
+        const icon = e.currentTarget.querySelector('i, svg');
+        if (icon) {
+            if (active) {
+                icon.style.fill = 'var(--primary)';
+                icon.style.color = 'var(--primary)';
+            } else {
+                icon.style.fill = '';
+                icon.style.color = '';
+            }
         }
     });
 

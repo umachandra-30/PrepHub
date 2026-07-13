@@ -1,0 +1,752 @@
+[
+  {
+    "category": "Company",
+    "question": "How should I prepare for TCS placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by TCS. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does TCS usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for TCS?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for TCS when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for TCS?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for TCS?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Infosys placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Infosys. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Infosys usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Infosys?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Infosys when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Infosys?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Infosys?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Wipro placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Wipro. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Wipro usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Wipro?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Wipro when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Wipro?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Wipro?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Accenture placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Accenture. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Accenture usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Accenture?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Accenture when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Accenture?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Accenture?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Capgemini placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Capgemini. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Capgemini usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Capgemini?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Capgemini when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Capgemini?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Capgemini?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Cognizant placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Cognizant. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Cognizant usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Cognizant?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Cognizant when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Cognizant?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Cognizant?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Deloitte placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Deloitte. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Deloitte usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Deloitte?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Deloitte when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Deloitte?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Deloitte?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Amazon placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Amazon. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Amazon usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Amazon?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Amazon when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Amazon?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Amazon?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Microsoft placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Microsoft. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Microsoft usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Microsoft?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Microsoft when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Microsoft?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Microsoft?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Google placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Google. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Google usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Google?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Google when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Google?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Google?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Adobe placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Adobe. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Adobe usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Adobe?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Adobe when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Adobe?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Adobe?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Oracle placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Oracle. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Oracle usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Oracle?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Oracle when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Oracle?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Oracle?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for IBM placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by IBM. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does IBM usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for IBM?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for IBM when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for IBM?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for IBM?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Zoho placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Zoho. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Zoho usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Zoho?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Zoho when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Zoho?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Zoho?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for HCL placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by HCL. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does HCL usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for HCL?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for HCL when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for HCL?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for HCL?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Tech Mahindra placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Tech Mahindra. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Tech Mahindra usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Tech Mahindra?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Tech Mahindra when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Tech Mahindra?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Tech Mahindra?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for LTIMindtree placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by LTIMindtree. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does LTIMindtree usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for LTIMindtree?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for LTIMindtree when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for LTIMindtree?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for LTIMindtree?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for DXC Technology placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by DXC Technology. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does DXC Technology usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for DXC Technology?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for DXC Technology when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for DXC Technology?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for DXC Technology?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Cisco placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Cisco. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Cisco usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Cisco?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Cisco when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Cisco?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Cisco?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Company",
+    "question": "How should I prepare for Intel placements?",
+    "answer": "Focus on aptitude, DSA, OOP, DBMS, SQL, OS, CN, and interview questions commonly asked by Intel. Practice mock tests and revise core concepts."
+  },
+  {
+    "category": "Company",
+    "question": "What topics does Intel usually ask?",
+    "answer": "The exact pattern varies, but coding, aptitude, core CS subjects, and behavioral questions are commonly tested."
+  },
+  {
+    "category": "Company",
+    "question": "Does PrepHub have questions for Intel?",
+    "answer": "Yes. Search or filter by company to practice questions tagged for Intel when available."
+  },
+  {
+    "category": "Company",
+    "question": "Is DSA important for Intel?",
+    "answer": "Yes. Arrays, strings, linked lists, trees, graphs, recursion, and dynamic programming are valuable topics."
+  },
+  {
+    "category": "Company",
+    "question": "What interview tips should I follow for Intel?",
+    "answer": "Explain your thought process, communicate clearly, write clean solutions, and ask clarifying questions."
+  },
+  {
+    "category": "Resume",
+    "question": "What is an ATS-friendly resume?",
+    "answer": "An ATS-friendly resume uses a clean layout, standard headings, and relevant keywords."
+  },
+  {
+    "category": "Resume",
+    "question": "How long should my resume be?",
+    "answer": "One page is ideal for most students and fresh graduates."
+  },
+  {
+    "category": "Resume",
+    "question": "Should I include projects?",
+    "answer": "Yes. Include impactful projects with technologies and measurable outcomes."
+  },
+  {
+    "category": "Resume",
+    "question": "Should I include CGPA?",
+    "answer": "Include it if it is strong or required by recruiters."
+  },
+  {
+    "category": "Resume",
+    "question": "What skills should I list?",
+    "answer": "List only skills you can confidently discuss in interviews."
+  },
+  {
+    "category": "Resume",
+    "question": "How can PrepHub help with resumes?",
+    "answer": "PrepHub provides resume guidance, examples, and preparation resources."
+  },
+  {
+    "category": "HR",
+    "question": "Tell me about yourself.",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Why should we hire you?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "What are your strengths?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "What are your weaknesses?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Where do you see yourself in five years?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Why do you want this job?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Describe a challenge you overcame.",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "How do you handle pressure?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Why should we choose you over others?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "HR",
+    "question": "Do you have any questions for us?",
+    "answer": "Prepare a concise, honest, and structured answer using examples from academics, projects, internships, or leadership experiences."
+  },
+  {
+    "category": "Coding",
+    "question": "How many DSA questions should I solve daily?",
+    "answer": "Aim for 2\u20135 quality problems every day and review your mistakes."
+  },
+  {
+    "category": "Coding",
+    "question": "Should I learn recursion before DP?",
+    "answer": "Yes. A good understanding of recursion helps in learning dynamic programming."
+  },
+  {
+    "category": "Coding",
+    "question": "How do I improve coding speed?",
+    "answer": "Practice timed problems, analyze solutions, and revisit difficult questions."
+  },
+  {
+    "category": "Coding",
+    "question": "Which language should I use in interviews?",
+    "answer": "Use the language you are most comfortable with unless the company specifies otherwise."
+  },
+  {
+    "category": "Coding",
+    "question": "How do I debug efficiently?",
+    "answer": "Test edge cases, use meaningful variable names, and trace your logic step by step."
+  },
+  {
+    "category": "PrepHub",
+    "question": "What are bookmarks?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "How do recommendations work?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I continue where I left off?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I view my weak topics?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Does PrepHub support daily streaks?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I practice subject-wise?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I filter by difficulty?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I filter by company?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Will my progress sync across devices?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "PrepHub",
+    "question": "Can I revisit completed tests?",
+    "answer": "Yes. PrepHub is designed to organize your preparation, save progress, and help you focus on weak areas where applicable."
+  },
+  {
+    "category": "General",
+    "question": "How do I crack campus placements?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How do I prepare in 30 days?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "What should I study first?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How do I stay consistent?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "Which subject is most important?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "Can beginners crack product-based companies?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How do I balance coding and aptitude?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How do I prepare for technical interviews?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How do I revise quickly before interviews?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "General",
+    "question": "How can I improve problem-solving?",
+    "answer": "Create a daily schedule, focus on fundamentals, practice consistently, take mock tests, and review weak topics using PrepHub."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 1?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 2?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 3?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 4?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 5?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 6?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 7?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 8?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  },
+  {
+    "category": "Interview",
+    "question": "Interview preparation tip 9?",
+    "answer": "Practice regularly, revise fundamentals, communicate clearly, and learn from previous mistakes."
+  }
+]

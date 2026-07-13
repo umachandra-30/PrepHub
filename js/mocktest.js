@@ -50,11 +50,13 @@ function bindSetupEvents() {
                     return;
                 }
                 e.currentTarget.classList.remove('active');
-                e.currentTarget.querySelector('i').className = 'lucide-square';
+                const icon = e.currentTarget.querySelector('i, svg');
+                if (icon) icon.className = 'lucide-square';
                 selectedCategories = selectedCategories.filter(c => c !== cat);
             } else {
                 e.currentTarget.classList.add('active');
-                e.currentTarget.querySelector('i').className = 'lucide-check-square';
+                const icon = e.currentTarget.querySelector('i, svg');
+                if (icon) icon.className = 'lucide-check-square';
                 selectedCategories.push(cat);
             }
             if (typeof lucide !== 'undefined') lucide.createIcons();

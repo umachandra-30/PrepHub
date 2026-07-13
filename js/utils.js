@@ -2,29 +2,76 @@
    Placement Preparation Hub - Shared Utility Functions
    ========================================================================== */
 
+// Automatically intercept and wrap lucide.createIcons to translate class="lucide-*" into data-lucide="*"
+(function() {
+    let _lucide = window.lucide;
+    const wrap = (val) => {
+        if (val && val.createIcons && !val.createIcons.__wrapped) {
+            const originalCreateIcons = val.createIcons;
+            val.createIcons = function(options) {
+                try {
+                    const elements = document.querySelectorAll('[class*="lucide-"], [data-lucide]');
+                    elements.forEach(el => {
+                        let iconName = '';
+                        el.classList.forEach(className => {
+                            if (className.startsWith('lucide-') && className !== 'lucide-container' && className !== 'lucide') {
+                                iconName = className.substring(7);
+                            }
+                        });
+
+                        if (iconName) {
+                            if (el.tagName.toLowerCase() === 'svg') {
+                                const currentIcon = el.getAttribute('data-lucide');
+                                if (currentIcon && currentIcon !== iconName) {
+                                    const i = document.createElement('i');
+                                    i.className = el.className.baseVal || el.className;
+                                    i.setAttribute('data-lucide', iconName);
+                                    if (el.style.cssText) i.style.cssText = el.style.cssText;
+                                    el.parentNode.replaceChild(i, el);
+                                }
+                            } else {
+                                if (el.getAttribute('data-lucide') !== iconName) {
+                                    el.setAttribute('data-lucide', iconName);
+                                }
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.error("Error preprocessing lucide icons:", e);
+                }
+                return originalCreateIcons(options);
+            };
+            val.createIcons.__wrapped = true;
+        }
+        return val;
+    };
+
+    if (_lucide) {
+        wrap(_lucide);
+    } else {
+        Object.defineProperty(window, 'lucide', {
+            configurable: true,
+            enumerable: true,
+            get() {
+                return _lucide;
+            },
+            set(val) {
+                _lucide = wrap(val);
+            }
+        });
+    }
+})();
+
 // Cognito Authentication Configuration
 const COGNITO_CONFIG = {
     region: 'us-east-1',
     userPoolId: 'us-east-1_djAcEVxhN',
     clientId: '6ad3gtr20eelnje7mp8ooilu6u',
     clientSecret: 'vtadcsrcc5e61jlinagpvgdjura8p1404534aefjejh9et9c89q',
+    hostedUiUrl: 'https://us-east-1djacevxhn.auth.us-east-1.amazoncognito.com/login?client_id=6ad3gtr20eelnje7mp8ooilu6u&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fprep-hub-gamma.vercel.app%2F',
+    redirectUri: 'https://prep-hub-gamma.vercel.app/',
     domain: 'https://us-east-1djacevxhn.auth.us-east-1.amazoncognito.com',
-    apiGatewayUrl: 'https://vrxdrefcdf.execute-api.us-east-1.amazonaws.com/prod', // UPDATE THIS with your API Gateway Invoke URL once deployed
-    
-    // Dynamically retrieve redirect URI based on window.location
-    get redirectUri() {
-        const origin = window.location.origin;
-        if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
-            const port = window.location.port || '5502';
-            return `http://127.0.0.1:${port}/index.html`;
-        }
-        return origin.endsWith('/') ? origin : `${origin}/`;
-    },
-    
-    // Dynamically compute the Hosted UI Login URL
-    get hostedUiUrl() {
-        return `${this.domain}/login?client_id=${this.clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${encodeURIComponent(this.redirectUri)}`;
-    }
+    apiGatewayUrl: 'https://vrxdrefcdf.execute-api.us-east-1.amazonaws.com/prod' // UPDATE THIS with your API Gateway Invoke URL once deployed
 };
 
 // --- Authentication Helper Functions ---
@@ -41,7 +88,7 @@ function decodeJwtPayload(token) {
     try {
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
         return JSON.parse(jsonPayload);
@@ -54,7 +101,7 @@ function decodeJwtPayload(token) {
 async function exchangeCodeForTokens(code) {
     const tokenUrl = `${COGNITO_CONFIG.domain}/oauth2/token`;
     const basicAuth = btoa(`${COGNITO_CONFIG.clientId}:${COGNITO_CONFIG.clientSecret}`);
-    
+
     const response = await fetch(tokenUrl, {
         method: "POST",
         headers: {
@@ -68,31 +115,31 @@ async function exchangeCodeForTokens(code) {
             redirect_uri: COGNITO_CONFIG.redirectUri
         })
     });
-    
+
     if (!response.ok) {
         const errorText = await response.text();
         throw new Error(`Token exchange failed: ${errorText}`);
     }
-    
+
     const data = await response.json();
     if (data.id_token) {
         localStorage.setItem('hub_id_token', data.id_token);
         if (data.access_token) localStorage.setItem('hub_access_token', data.access_token);
         if (data.refresh_token) localStorage.setItem('hub_refresh_token', data.refresh_token);
-        
+
         const payload = decodeJwtPayload(data.id_token);
         localStorage.setItem('hub_user_email', payload.email || '');
-        
+
         // Fetch and load database records
         await syncUserData();
     }
 }
 
-window.loginUser = function() {
+window.loginUser = function () {
     window.location.href = COGNITO_CONFIG.hostedUiUrl;
 };
 
-window.logoutUser = function() {
+window.logoutUser = function () {
     if (confirm("Are you sure you want to log out?")) {
         localStorage.removeItem('hub_id_token');
         localStorage.removeItem('hub_access_token');
@@ -319,10 +366,10 @@ function toggleBookmark(question, subjectSlug, subjectName, categorySlug) {
         showToast('Bookmark removed!', 'info');
     }
     localStorage.setItem('hub-bookmarks', JSON.stringify(bookmarks));
-    
+
     // Sync to backend asynchronously
     syncBookmarksToBackend(bookmarks);
-    
+
     return bookmarked;
 }
 
@@ -354,10 +401,10 @@ function markQuestionCompleted(subjectSlug, questionId, isCorrect) {
     }
 
     localStorage.setItem('hub-progress', JSON.stringify(progress));
-    
+
     // Sync to backend asynchronously
     syncProgressToBackend(progress);
-    
+
     // Dispatch custom progress-updated event
     window.dispatchEvent(new CustomEvent('progress-updated'));
 }
@@ -365,12 +412,159 @@ function markQuestionCompleted(subjectSlug, questionId, isCorrect) {
 
 
 /* ==========================================================================
+   AI Chatbot Local Database & Search Engine
+   ========================================================================== */
+
+let chatbotQA = [];
+let isChatbotQALoading = false;
+let isChatbotQALoaded = false;
+
+async function loadChatbotQA() {
+    if (isChatbotQALoaded || isChatbotQALoading) return;
+    isChatbotQALoading = true;
+    try {
+        const response = await fetch('json/prephub-chatbot-2.json');
+        if (!response.ok) {
+            throw new Error(`Failed to fetch chatbot data: ${response.statusText}`);
+        }
+        chatbotQA = await response.json();
+        isChatbotQALoaded = true;
+        isChatbotQALoading = false;
+        console.log("Chatbot QA loaded successfully with", chatbotQA.length, "questions.");
+    } catch (err) {
+        console.error("Error loading chatbot QA:", err);
+        isChatbotQALoading = false;
+    }
+}
+
+async function findBotResponse(userQuery) {
+    if (!isChatbotQALoaded) {
+        await loadChatbotQA();
+    }
+
+    if (!chatbotQA || chatbotQA.length === 0) {
+        return {
+            answer: "I am having trouble accessing my database right now. Please try again in a moment.",
+            suggestions: []
+        };
+    }
+
+    const query = userQuery.trim().toLowerCase();
+    
+    // Stop words set for better keyword matching
+    const stopWords = new Set(["a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at", "be", "because", "been", "before", "being", "below", "between", "both", "but", "by", "can't", "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't", "doing", "don't", "down", "during", "each", "few", "for", "from", "further", "had", "hadn't", "has", "hasn't", "have", "haven't", "having", "he", "he'd", "he'll", "he's", "her", "here", "here's", "hers", "herself", "him", "himself", "his", "how", "how's", "i", "i'd", "i'll", "i'm", "i've", "if", "in", "into", "is", "isn't", "it", "it's", "its", "itself", "let's", "me", "more", "most", "mustn't", "my", "myself", "no", "nor", "not", "of", "off", "on", "once", "only", "or", "other", "ought", "our", "ours", "ourselves", "out", "over", "own", "same", "shan't", "she", "she'd", "she'll", "she's", "should", "shouldn't", "so", "some", "such", "than", "that", "that's", "the", "their", "theirs", "them", "themselves", "then", "there", "there's", "these", "they", "they'd", "they'll", "they're", "they've", "this", "those", "through", "to", "too", "under", "until", "up", "very", "was", "wasn't", "we", "we'd", "we'll", "we're", "we've", "were", "weren't", "what", "what's", "when", "when's", "where", "where's", "which", "while", "who", "who's", "whom", "why", "why's", "with", "won't", "would", "wouldn't", "you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves", "placements", "placement", "prep", "prephub"]);
+
+    const tokenize = (text) => {
+        return text.toLowerCase()
+            .replace(/[^\w\s]/g, '')
+            .split(/\s+/)
+            .filter(word => word.length > 0);
+    };
+
+    const userTokens = tokenize(query);
+    if (userTokens.length === 0) {
+        return {
+            answer: "I didn't quite catch that. Could you please type a question?",
+            suggestions: []
+        };
+    }
+
+    const userKeywords = userTokens.filter(word => !stopWords.has(word));
+    const queryTokensToUse = userKeywords.length > 0 ? userKeywords : userTokens;
+
+    const scoredQuestions = [];
+
+    for (const qa of chatbotQA) {
+        const candidateTokens = tokenize(qa.question);
+        const candidateKeywords = candidateTokens.filter(word => !stopWords.has(word));
+        const candidateTokensToUse = candidateKeywords.length > 0 ? candidateKeywords : candidateTokens;
+
+        // Calculate keyword intersection
+        const candSet = new Set(candidateTokensToUse);
+        let intersectionCount = 0;
+        for (const token of queryTokensToUse) {
+            if (candSet.has(token)) {
+                intersectionCount++;
+            }
+        }
+
+        // Score based on Jaccard-like ratio
+        let score = 0;
+        if (intersectionCount > 0) {
+            score = intersectionCount / (queryTokensToUse.length + candidateTokensToUse.length - intersectionCount);
+        }
+
+        // Boost if exact match or substring match
+        const cleanQuery = query.replace(/[^\w\s]/g, '').trim();
+        const cleanQuestion = qa.question.toLowerCase().replace(/[^\w\s]/g, '').trim();
+        
+        if (cleanQuestion === cleanQuery) {
+            score += 5.0; // exact match gets top priority
+        } else if (cleanQuestion.includes(cleanQuery) || cleanQuery.includes(cleanQuestion)) {
+            score += 2.0; // substring gets high priority
+        }
+
+        if (score > 0) {
+            scoredQuestions.push({ qa, score });
+        }
+    }
+
+    scoredQuestions.sort((a, b) => b.score - a.score);
+
+    // If we have some matches above a threshold
+    if (scoredQuestions.length > 0 && scoredQuestions[0].score >= 0.05) {
+        const topMatch = scoredQuestions[0].qa;
+        
+        // Find top 3-4 alternative related suggestions, excluding the matched one
+        const suggestions = [];
+        for (let i = 1; i < scoredQuestions.length && suggestions.length < 3; i++) {
+            suggestions.push(scoredQuestions[i].qa.question);
+        }
+
+        // If we don't have enough suggestions from similarity, let's add some from the same category
+        if (suggestions.length < 3) {
+            const sameCategory = chatbotQA.filter(qa => 
+                qa.category === topMatch.category && 
+                qa.question !== topMatch.question && 
+                !suggestions.includes(qa.question)
+            );
+            while (suggestions.length < 3 && sameCategory.length > 0) {
+                const randIdx = Math.floor(Math.random() * sameCategory.length);
+                suggestions.push(sameCategory.splice(randIdx, 1)[0].question);
+            }
+        }
+
+        return {
+            answer: topMatch.answer,
+            suggestions: suggestions
+        };
+    }
+
+    // Fallback: pick 4 diverse random questions
+    const defaultAnswer = "I couldn't find a direct answer to that in my database. As PrepHub's placement assistant, I can help you prepare for specific companies, interview rounds, coding strategies, and quantitative subjects. \n\nTry asking me one of the following:";
+    const suggestions = [];
+    const tempQA = [...chatbotQA];
+    while (suggestions.length < 4 && tempQA.length > 0) {
+        const randIdx = Math.floor(Math.random() * tempQA.length);
+        const item = tempQA.splice(randIdx, 1)[0];
+        if (!suggestions.includes(item.question)) {
+            suggestions.push(item.question);
+        }
+    }
+
+    return {
+        answer: defaultAnswer,
+        suggestions: suggestions
+    };
+}
+
+/* ==========================================================================
    Common Layout Injector (Navbar & Footer)
    ========================================================================== */
 
 function renderHeaderFooter() {
     const activePage = window.location.pathname.split("/").pop() || 'index.html';
-    
+
     // Render Auth markup for desktop and mobile navbar integrations
     const isLoggedInUser = isLoggedIn();
     let desktopAuthHtml = '';
@@ -584,51 +778,61 @@ function renderHeaderFooter() {
         document.body.appendChild(settingsModal);
     }
 
-    // 5. Inject AI Chatbot FAB and Widget
+    // 5. Inject AI Chatbot FAB and Widget (Only if logged in)
     let chatbotFab = document.getElementById('chatbot-fab');
-    if (!chatbotFab) {
-        chatbotFab = document.createElement('button');
-        chatbotFab.id = 'chatbot-fab';
-        chatbotFab.className = 'chatbot-fab';
-        chatbotFab.setAttribute('aria-label', 'Open AI Assistant');
-        chatbotFab.innerHTML = '<i class="lucide-message-square"></i>';
-        document.body.appendChild(chatbotFab);
-    }
-
     let chatbotWidget = document.getElementById('chatbot-widget');
-    if (!chatbotWidget) {
-        chatbotWidget = document.createElement('div');
-        chatbotWidget.id = 'chatbot-widget';
-        chatbotWidget.className = 'chatbot-widget';
-        chatbotWidget.innerHTML = `
-            <div class="chatbot-header">
-                <div class="chatbot-header-info">
-                    <span class="chatbot-header-status"></span>
-                    <h4>PrepHub AI Assistant</h4>
-                </div>
-                <button id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Close Chat">
-                    <i class="lucide-x"></i>
-                </button>
-            </div>
-            <div class="chatbot-messages" id="chatbot-messages-list">
-                <div class="chat-message message-bot">
-                    <div class="chat-message-text">
-                        <p>Hi there! 👋 I am your PrepHub AI Placement Assistant. How can I help you prepare for your upcoming placement rounds today?</p>
+
+    if (isLoggedInUser) {
+        if (!chatbotFab) {
+            chatbotFab = document.createElement('button');
+            chatbotFab.id = 'chatbot-fab';
+            chatbotFab.className = 'chatbot-fab';
+            chatbotFab.setAttribute('aria-label', 'Open AI Assistant');
+            chatbotFab.innerHTML = '<i class="lucide-message-square"></i>';
+            document.body.appendChild(chatbotFab);
+        }
+
+        if (!chatbotWidget) {
+            chatbotWidget = document.createElement('div');
+            chatbotWidget.id = 'chatbot-widget';
+            chatbotWidget.className = 'chatbot-widget';
+            chatbotWidget.innerHTML = `
+                <div class="chatbot-header">
+                    <div class="chatbot-header-info">
+                        <span class="chatbot-header-status"></span>
+                        <h4>PrepHub AI Assistant</h4>
                     </div>
-                    <div class="chat-message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                    <button id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Close Chat">
+                        <i class="lucide-x"></i>
+                    </button>
                 </div>
-            </div>
-            <form class="chatbot-input-container" id="chatbot-form">
-                <input type="text" id="chatbot-input" placeholder="Ask anything about placements..." autocomplete="off">
-                <button type="submit" class="chatbot-send-btn" aria-label="Send Message">
-                    <i class="lucide-send"></i>
-                </button>
-            </form>
-        `;
-        document.body.appendChild(chatbotWidget);
+                <div class="chatbot-messages" id="chatbot-messages-list">
+                    <div class="chat-message message-bot">
+                        <div class="chat-message-text">
+                            <p>Hi there! 👋 I am your PrepHub AI Placement Assistant. How can I help you prepare for your upcoming placement rounds today?</p>
+                        </div>
+                        <div class="chat-message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                    </div>
+                </div>
+                <form class="chatbot-input-container" id="chatbot-form">
+                    <input type="text" id="chatbot-input" placeholder="Ask anything about placements..." autocomplete="off">
+                    <button type="submit" class="chatbot-send-btn" aria-label="Send Message">
+                        <i class="lucide-send"></i>
+                    </button>
+                </form>
+            `;
+            document.body.appendChild(chatbotWidget);
+        }
+    } else {
+        if (chatbotFab) chatbotFab.remove();
+        if (chatbotWidget) chatbotWidget.remove();
     }
 
     setupNavbarHandlers();
+    
+    // Set correct theme icon on initial load/reload
+    const activeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeToggleUI(activeTheme);
 }
 
 function setupNavbarHandlers() {
@@ -689,7 +893,7 @@ function setupNavbarHandlers() {
                 chevron.style.transition = 'transform 0.2s ease';
             }
         });
-        
+
         // Hide dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
@@ -704,7 +908,7 @@ function setupNavbarHandlers() {
     const openSettingsBtn = document.getElementById('open-settings-btn');
     const closeSettingsBtn = document.getElementById('close-settings-btn');
     const settingsModal = document.getElementById('settings-modal');
-    
+
     const initSettingsForm = () => {
         const savedProfile = JSON.parse(localStorage.getItem('hub-profile')) || {};
         const cognitoEmail = localStorage.getItem('hub_user_email') || '';
@@ -767,18 +971,18 @@ function setupNavbarHandlers() {
                 showToast("Please enter a name", "warning");
                 return;
             }
-            
+
             const email = localStorage.getItem('hub_user_email') || '';
             const profile = { name: newName, email: email };
             localStorage.setItem('hub-profile', JSON.stringify(profile));
-            
+
             let success = true;
             if (window.isLoggedIn && window.isLoggedIn() && window.syncProfileToBackend) {
                 success = await window.syncProfileToBackend(newName, email);
             } else {
                 showToast("Name saved successfully!", "success");
             }
-            
+
             if (success) {
                 // Refresh header layout to display the new name
                 renderHeaderFooter();
@@ -825,15 +1029,15 @@ function setupNavbarHandlers() {
             localStorage.removeItem('hub-bookmarks');
             localStorage.removeItem('hub-progress');
             localStorage.removeItem('hub-profile');
-            
+
             showToast("Your account data was successfully deleted!", "success");
-            
+
             // Close modal
             if (settingsModal) {
                 settingsModal.classList.remove('show');
                 settingsModal.classList.add('hidden');
             }
-            
+
             // Redirect to dashboard
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
@@ -898,40 +1102,116 @@ function setupNavbarHandlers() {
         return formattedLines.join('\n');
     };
 
-    const callGeminiAPI = async (messages) => {
-        const apiKey = "AIzaSyCFivFXXHKucDazWAW_YNr_cGsHxX-2GIM";
-        const systemPrompt = "You are PrepHub's AI Placement Assistant. You are a helpful, professional, and knowledgeable expert designed to answer placement-related queries, mock interview prep, code explanations, resume tips, and quantitative/logical reasoning questions. Format answers using HTML or markdown paragraphs, clean lists, and code blocks where applicable. Keep responses structured, concise, and professional.";
+    const handleChatSubmit = async (text) => {
+        if (!text) return;
         
-        const payload = {
-            systemInstruction: {
-                parts: [{ text: systemPrompt }]
-            },
-            contents: messages
-        };
+        const currentMessagesList = document.getElementById('chatbot-messages-list');
+        if (!currentMessagesList) return;
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const userMsgDiv = document.createElement('div');
+        userMsgDiv.className = 'chat-message message-user';
+        userMsgDiv.innerHTML = `
+            <div class="chat-message-text">
+                <p>${text}</p>
+            </div>
+            <div class="chat-message-time">${time}</div>
+        `;
+        currentMessagesList.appendChild(userMsgDiv);
+        currentMessagesList.scrollTop = currentMessagesList.scrollHeight;
 
-        if (!response.ok) {
-            throw new Error(`API call failed: ${response.statusText}`);
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'chat-message message-bot typing-indicator-bubble';
+        typingDiv.innerHTML = `
+            <div class="chat-message-text">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        currentMessagesList.appendChild(typingDiv);
+        currentMessagesList.scrollTop = currentMessagesList.scrollHeight;
+
+        try {
+            const responseData = await findBotResponse(text);
+            typingDiv.remove();
+
+            const botMsgDiv = document.createElement('div');
+            botMsgDiv.className = 'chat-message message-bot';
+            
+            let formattedHtml = formatMarkdownToHTML(responseData.answer);
+            
+            if (responseData.suggestions && responseData.suggestions.length > 0) {
+                formattedHtml += `
+                    <div class="chat-suggestions-container">
+                        <p class="chat-suggestions-title">Related Questions:</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                            ${responseData.suggestions.map(q => {
+                                const escapedQ = q.replace(/'/g, "\\'").replace(/"/g, "&quot;");
+                                return `
+                                    <button type="button" class="chat-suggestion-btn" onclick="window.askChatbotQuestion('${escapedQ}')">
+                                        ${q}
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            botMsgDiv.innerHTML = `
+                <div class="chat-message-text">
+                    ${formattedHtml}
+                </div>
+                <div class="chat-message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+            `;
+            currentMessagesList.appendChild(botMsgDiv);
+            currentMessagesList.scrollTop = currentMessagesList.scrollHeight;
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        } catch (err) {
+            console.error("Chatbot Error:", err);
+            typingDiv.remove();
+
+            const errorMsgDiv = document.createElement('div');
+            errorMsgDiv.className = 'chat-message message-bot';
+            errorMsgDiv.innerHTML = `
+                <div class="chat-message-text" style="border-color: var(--danger-bg); background: var(--danger-bg); color: var(--danger);">
+                    <p><i class="lucide-alert-triangle" style="display:inline-block; vertical-align:middle; margin-right:0.25rem;"></i> Failed to get a response. Please try again.</p>
+                </div>
+                <div class="chat-message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+            `;
+            currentMessagesList.appendChild(errorMsgDiv);
+            currentMessagesList.scrollTop = currentMessagesList.scrollHeight;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
-
-        const data = await response.json();
-        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
     };
 
-    if (cbFab && cbWidget) {
+    window.askChatbotQuestion = async (text) => {
+        const activeWidget = document.getElementById('chatbot-widget');
+        const activeFab = document.getElementById('chatbot-fab');
+        if (activeWidget && !activeWidget.classList.contains('show')) {
+            activeWidget.classList.add('show');
+            if (activeFab) {
+                activeFab.innerHTML = '<i class="lucide-x"></i>';
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+        await handleChatSubmit(text);
+    };
+
+    if (cbFab && cbWidget && !cbFab.dataset.listenersBound) {
+        cbFab.dataset.listenersBound = "true";
         cbFab.addEventListener('click', () => {
             cbWidget.classList.toggle('show');
             if (cbWidget.classList.contains('show')) {
                 cbFab.innerHTML = '<i class="lucide-x"></i>';
                 if (cbInput) cbInput.focus();
                 if (cbMessagesList) cbMessagesList.scrollTop = cbMessagesList.scrollHeight;
+                loadChatbotQA();
             } else {
                 cbFab.innerHTML = '<i class="lucide-message-square"></i>';
             }
@@ -939,7 +1219,8 @@ function setupNavbarHandlers() {
         });
     }
 
-    if (cbCloseBtn && cbWidget && cbFab) {
+    if (cbCloseBtn && cbWidget && cbFab && !cbCloseBtn.dataset.listenersBound) {
+        cbCloseBtn.dataset.listenersBound = "true";
         cbCloseBtn.addEventListener('click', () => {
             cbWidget.classList.remove('show');
             cbFab.innerHTML = '<i class="lucide-message-square"></i>';
@@ -947,87 +1228,17 @@ function setupNavbarHandlers() {
         });
     }
 
-    if (cbForm && cbInput && cbMessagesList) {
+    if (cbForm && cbInput && cbMessagesList && !cbForm.dataset.listenersBound) {
+        cbForm.dataset.listenersBound = "true";
         cbForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const text = cbInput.value.trim();
             if (!text) return;
-
             cbInput.value = '';
-
-            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            const userMsgDiv = document.createElement('div');
-            userMsgDiv.className = 'chat-message message-user';
-            userMsgDiv.innerHTML = `
-                <div class="chat-message-text">
-                    <p>${text}</p>
-                </div>
-                <div class="chat-message-time">${time}</div>
-            `;
-            cbMessagesList.appendChild(userMsgDiv);
-            cbMessagesList.scrollTop = cbMessagesList.scrollHeight;
-
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'chat-message message-bot typing-indicator-bubble';
-            typingDiv.innerHTML = `
-                <div class="chat-message-text">
-                    <div class="typing-indicator">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            `;
-            cbMessagesList.appendChild(typingDiv);
-            cbMessagesList.scrollTop = cbMessagesList.scrollHeight;
-
-            chatHistory.push({
-                role: 'user',
-                parts: [{ text: text }]
-            });
-
-            try {
-                const responseText = await callGeminiAPI(chatHistory);
-                typingDiv.remove();
-
-                const formattedHtml = formatMarkdownToHTML(responseText);
-
-                const botMsgDiv = document.createElement('div');
-                botMsgDiv.className = 'chat-message message-bot';
-                botMsgDiv.innerHTML = `
-                    <div class="chat-message-text">
-                        ${formattedHtml}
-                    </div>
-                    <div class="chat-message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-                `;
-                cbMessagesList.appendChild(botMsgDiv);
-                cbMessagesList.scrollTop = cbMessagesList.scrollHeight;
-
-                chatHistory.push({
-                    role: 'model',
-                    parts: [{ text: responseText }]
-                });
-
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-
-            } catch (err) {
-                console.error("Gemini API Error:", err);
-                typingDiv.remove();
-
-                const errorMsgDiv = document.createElement('div');
-                errorMsgDiv.className = 'chat-message message-bot';
-                errorMsgDiv.innerHTML = `
-                    <div class="chat-message-text" style="border-color: var(--danger-bg); background: var(--danger-bg); color: var(--danger);">
-                        <p><i class="lucide-alert-triangle" style="display:inline-block; vertical-align:middle; margin-right:0.25rem;"></i> Failed to get a response. Please try again.</p>
-                    </div>
-                    <div class="chat-message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-                `;
-                cbMessagesList.appendChild(errorMsgDiv);
-                cbMessagesList.scrollTop = cbMessagesList.scrollHeight;
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
+            await handleChatSubmit(text);
         });
     }
+
 
 }
 
@@ -1046,7 +1257,7 @@ function showToast(message, type = 'success') {
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
-    
+
     let iconClass = 'check-circle';
     if (type === 'warning') iconClass = 'alert-triangle';
     if (type === 'danger') iconClass = 'alert-circle';
@@ -1056,9 +1267,9 @@ function showToast(message, type = 'success') {
         <i class="lucide-${iconClass}"></i>
         <span>${message}</span>
     `;
-    
+
     container.appendChild(toast);
-    
+
     if (typeof lucide !== 'undefined') {
         lucide.createIcons({
             attrs: {
@@ -1091,16 +1302,17 @@ function shareQuestion(questionObj, subjectSlug) {
 
 // Automatically bootstrap basic layouts on scripts load
 window.addEventListener('DOMContentLoaded', async () => {
+    loadChatbotQA();
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-    
+
     if (code) {
         // Intercept token exchange redirect from Hosted UI
         const loadingHeading = document.querySelector('body div h2');
         if (loadingHeading) {
             loadingHeading.innerText = "Authenticating with AWS Cognito...";
         }
-        
+
         try {
             await exchangeCodeForTokens(code);
             showToast("Logged in successfully via Cognito!", "success");
@@ -1114,7 +1326,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     const activePage = window.location.pathname.split("/").pop() || 'index.html';
-    
+
     // Redirect index.html to dashboard.html directly (if not logged in redirection code path)
     if (activePage === 'index.html' || activePage === '') {
         window.location.href = 'dashboard.html';

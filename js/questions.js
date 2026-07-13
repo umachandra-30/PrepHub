@@ -444,13 +444,15 @@ function setupQuestionEvents(q) {
     // Bookmark Toggle Clicked
     bookmarkBtn.addEventListener('click', () => {
         const bookmarked = toggleBookmark(q, currentSubjectSlug, currentSubjectName, currentCategorySlug);
-        const icon = bookmarkBtn.querySelector('i');
-        if (bookmarked) {
-            icon.style.fill = 'var(--primary)';
-            icon.style.color = 'var(--primary)';
-        } else {
-            icon.style.fill = '';
-            icon.style.color = '';
+        const icon = bookmarkBtn.querySelector('i, svg');
+        if (icon) {
+            if (bookmarked) {
+                icon.style.fill = 'var(--primary)';
+                icon.style.color = 'var(--primary)';
+            } else {
+                icon.style.fill = '';
+                icon.style.color = '';
+            }
         }
     });
 
