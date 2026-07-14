@@ -164,6 +164,7 @@ async function syncUserData() {
         console.warn("API Gateway URL not configured yet. Running in offline/localStorage fallback mode.");
         return;
     }
+    console.log(`[syncUserData] Fetching user data from: ${apiBase}/user`);
     try {
         const response = await fetch(`${apiBase}/user`, {
             method: 'GET',
@@ -171,18 +172,27 @@ async function syncUserData() {
                 'Authorization': `Bearer ${getIdToken()}`
             }
         });
+        console.log(`[syncUserData] Received response status: ${response.status}`);
         if (response.ok) {
             const data = await response.json();
-            if (data.bookmarks) localStorage.setItem('hub-bookmarks', JSON.stringify(data.bookmarks));
-            if (data.progress) localStorage.setItem('hub-progress', JSON.stringify(data.progress));
-            if (data.profile) localStorage.setItem('hub-profile', JSON.stringify(data.profile));
+            console.log("[syncUserData] Retrieved data:", JSON.stringify(data));
+            if (data.bookmarks) {
+                localStorage.setItem('hub-bookmarks', JSON.stringify(data.bookmarks));
+            }
+            if (data.progress) {
+                localStorage.setItem('hub-progress', JSON.stringify(data.progress));
+            }
+            if (data.profile) {
+                localStorage.setItem('hub-profile', JSON.stringify(data.profile));
+            }
             // Trigger customized reload event
             window.dispatchEvent(new CustomEvent('sync-completed'));
         } else {
-            console.error("Failed to sync user data from API:", response.statusText);
+            const errText = await response.text();
+            console.error("[syncUserData] Failed to sync user data from API:", response.statusText, errText);
         }
     } catch (err) {
-        console.error("Error during syncUserData:", err);
+        console.error("[syncUserData] Error during syncUserData:", err);
     }
 }
 
@@ -204,12 +214,19 @@ async function syncBookmarksToBackend(bookmarks) {
     }
 }
 
-async function syncProgressToBackend(courses) {
+async function syncProgressToBackend(courses, originalProgress) {
     if (!isLoggedIn()) return;
     const apiBase = COGNITO_CONFIG.apiGatewayUrl;
-    if (!apiBase || apiBase.includes("<API_GATEWAY_URL>")) return;
+    if (!apiBase || apiBase.includes("<API_GATEWAY_URL>")) {
+        console.warn("API Gateway URL not configured yet. Running in offline/localStorage fallback mode.");
+        return;
+    }
+
+    console.log(`[syncProgressToBackend] Syncing progress to: ${apiBase}/progress`);
+    console.log("[syncProgressToBackend] Payload:", JSON.stringify({ courses }));
+
     try {
-        await fetch(`${apiBase}/progress`, {
+        const response = await fetch(`${apiBase}/progress`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -217,8 +234,33 @@ async function syncProgressToBackend(courses) {
             },
             body: JSON.stringify({ courses })
         });
+
+        console.log(`[syncProgressToBackend] Received response status: ${response.status}`);
+
+        if (response.ok) {
+            const resData = await response.json();
+            console.log("[syncProgressToBackend] Successfully synced progress:", resData);
+            showToast("Progress successfully saved to database.", "success");
+        } else {
+            const errText = await response.text();
+            console.error("[syncProgressToBackend] Failed to sync progress to database:", response.statusText, errText);
+            showToast("Failed to sync progress to cloud database.", "danger");
+
+            if (originalProgress) {
+                console.log("[syncProgressToBackend] Reverting local storage progress cache due to sync failure.");
+                localStorage.setItem('hub-progress', JSON.stringify(originalProgress));
+                window.dispatchEvent(new CustomEvent('progress-updated'));
+            }
+        }
     } catch (err) {
-        console.error("Error syncing progress to backend:", err);
+        console.error("[syncProgressToBackend] Network/CORS or lambda execution error during progress sync:", err);
+        showToast("Network/CORS error. Failed to save progress to cloud database.", "danger");
+
+        if (originalProgress) {
+            console.log("[syncProgressToBackend] Reverting local storage progress cache due to exception.");
+            localStorage.setItem('hub-progress', JSON.stringify(originalProgress));
+            window.dispatchEvent(new CustomEvent('progress-updated'));
+        }
     }
 }
 
@@ -380,6 +422,9 @@ function getProgress() {
 }
 
 function markQuestionCompleted(subjectSlug, questionId, isCorrect) {
+    // Capture original state for rollback on sync failure
+    const originalProgress = JSON.parse(localStorage.getItem('hub-progress')) || {};
+    
     const progress = getProgress();
     if (!progress[subjectSlug]) {
         progress[subjectSlug] = { completed: [], correct: [], wrong: [] };
@@ -402,8 +447,10 @@ function markQuestionCompleted(subjectSlug, questionId, isCorrect) {
 
     localStorage.setItem('hub-progress', JSON.stringify(progress));
 
-    // Sync to backend asynchronously
-    syncProgressToBackend(progress);
+    // Sync to backend asynchronously (passing original progress for recovery if API fails)
+    if (isLoggedIn()) {
+        syncProgressToBackend(progress, originalProgress);
+    }
 
     // Dispatch custom progress-updated event
     window.dispatchEvent(new CustomEvent('progress-updated'));
@@ -1337,6 +1384,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Sync state on load asynchronously
     if (isLoggedIn()) {
         await syncUserData();
+    } else {
+        localStorage.removeItem('hub-bookmarks');
+        localStorage.removeItem('hub-progress');
+        localStorage.removeItem('hub-profile');
+        localStorage.removeItem('hub_user_email');
+        localStorage.removeItem('hub_access_token');
+        localStorage.removeItem('hub_refresh_token');
+        localStorage.removeItem('hub_id_token');
     }
 
     initTheme();

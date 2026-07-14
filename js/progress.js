@@ -234,6 +234,11 @@ function resetAllProgress(registry) {
     if (confirm("WARNING: This will permanently wipe all completed questions, stats, and accuracy metrics. Are you sure you want to proceed?")) {
         localStorage.removeItem('hub-progress');
         
+        // Sync empty progress database to backend for logged-in users
+        if (window.syncProgressToBackend) {
+            window.syncProgressToBackend({});
+        }
+
         renderProgressStats(registry);
         showToast("Progress records have been reset!", "info");
     }
