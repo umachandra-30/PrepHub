@@ -26,6 +26,17 @@ export const handler = async (event) => {
         return buildResponse(200, { message: "CORS Preflight OK" });
     }
 
+    // Extract body and handle base64 encoding from API Gateway / Lambda proxy integrations
+    let requestBody = event.body;
+    if (event.isBase64Encoded && requestBody) {
+        try {
+            requestBody = Buffer.from(requestBody, "base64").toString("utf8");
+            console.log("Decoded base64 request body:", requestBody);
+        } catch (err) {
+            console.error("Failed to decode base64 request body:", err);
+        }
+    }
+
     // Extract & validate Cognito JWT from Authorization Header
     let userId;
     let emailFromJwt = "";
@@ -47,8 +58,10 @@ export const handler = async (event) => {
             return buildResponse(401, { error: "Unauthorized: Invalid JWT format" });
         }
 
-        // Decode JWT payload (middle segment)
-        const payloadJson = Buffer.from(tokenParts[1], "base64").toString("utf8");
+        // Decode JWT payload (middle segment) using base64url-to-base64 conversion
+        const base64Url = tokenParts[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const payloadJson = Buffer.from(base64, "base64").toString("utf8");
         const payload = JSON.parse(payloadJson);
 
         if (!payload.sub) {
@@ -67,11 +80,11 @@ export const handler = async (event) => {
         if (path === "/user" && method === "GET") {
             return await getUserData(userId, emailFromJwt);
         } else if (path === "/bookmark" && method === "POST") {
-            return await saveBookmarks(userId, event.body);
+            return await saveBookmarks(userId, requestBody);
         } else if (path === "/progress" && method === "POST") {
-            return await saveProgress(userId, event.body);
+            return await saveProgress(userId, requestBody);
         } else if (path === "/profile" && method === "POST") {
-            return await saveProfile(userId, event.body, emailFromJwt);
+            return await saveProfile(userId, requestBody, emailFromJwt);
         } else {
             return buildResponse(404, { error: `Route not found: ${method} ${path}` });
         }
@@ -85,6 +98,7 @@ export const handler = async (event) => {
  * GET /user - Retrieve all user-specific partitions (PROFILE, BOOKMARKS, PROGRESS)
  */
 async function getUserData(userId, emailFromJwt) {
+    console.log(`[getUserData] Querying database items for userId: ${userId}`);
     const result = await docClient.send(new QueryCommand({
         TableName: TABLE_NAME,
         KeyConditionExpression: "userId = :userId",
@@ -92,6 +106,7 @@ async function getUserData(userId, emailFromJwt) {
             ":userId": userId
         }
     }));
+    console.log(`[getUserData] Database query returned ${result.Items?.length || 0} items.`);
 
     // Setup fallback structures for new users
     let profile = { name: "", email: emailFromJwt };
@@ -113,6 +128,10 @@ async function getUserData(userId, emailFromJwt) {
         });
     }
 
+    console.log("[getUserData] Resolved profile:", JSON.stringify(profile));
+    console.log("[getUserData] Resolved bookmarks count:", bookmarks.length);
+    console.log("[getUserData] Resolved progress:", JSON.stringify(progress));
+
     return buildResponse(200, { profile, bookmarks, progress });
 }
 
@@ -120,14 +139,17 @@ async function getUserData(userId, emailFromJwt) {
  * POST /bookmark - Save user bookmarked questions array
  */
 async function saveBookmarks(userId, requestBody) {
+    console.log(`[saveBookmarks] Request body length: ${requestBody?.length || 0}`);
     let body;
     try {
         body = JSON.parse(requestBody || "{}");
     } catch (e) {
+        console.error("[saveBookmarks] JSON parse failure:", e);
         return buildResponse(400, { error: "Invalid JSON request body" });
     }
 
     const bookmarks = body.bookmarks || [];
+    console.log(`[saveBookmarks] Saving ${bookmarks.length} bookmarks for userId: ${userId}`);
 
     await docClient.send(new PutCommand({
         TableName: TABLE_NAME,
@@ -138,6 +160,7 @@ async function saveBookmarks(userId, requestBody) {
             updatedAt: new Date().toISOString()
         }
     }));
+    console.log("[saveBookmarks] Bookmarks saved successfully to DynamoDB.");
 
     return buildResponse(200, { success: true, message: "Bookmarks synchronized successfully" });
 }
@@ -146,14 +169,17 @@ async function saveBookmarks(userId, requestBody) {
  * POST /progress - Update course and subject completion progress states
  */
 async function saveProgress(userId, requestBody) {
+    console.log(`[saveProgress] Request body length: ${requestBody?.length || 0}`);
     let body;
     try {
         body = JSON.parse(requestBody || "{}");
     } catch (e) {
+        console.error("[saveProgress] JSON parse failure:", e);
         return buildResponse(400, { error: "Invalid JSON request body" });
     }
 
     const courses = body.courses || {};
+    console.log(`[saveProgress] Saving progress map for userId: ${userId}. Courses:`, JSON.stringify(courses));
 
     await docClient.send(new PutCommand({
         TableName: TABLE_NAME,
@@ -164,6 +190,7 @@ async function saveProgress(userId, requestBody) {
             updatedAt: new Date().toISOString()
         }
     }));
+    console.log("[saveProgress] Progress saved successfully to DynamoDB.");
 
     return buildResponse(200, { success: true, message: "Progress tracker synchronized successfully" });
 }
@@ -172,15 +199,18 @@ async function saveProgress(userId, requestBody) {
  * POST /profile - Save custom profile details (name, email)
  */
 async function saveProfile(userId, requestBody, emailFromJwt) {
+    console.log(`[saveProfile] Request body length: ${requestBody?.length || 0}`);
     let body;
     try {
         body = JSON.parse(requestBody || "{}");
     } catch (e) {
+        console.error("[saveProfile] JSON parse failure:", e);
         return buildResponse(400, { error: "Invalid JSON request body" });
     }
 
     const name = body.name || "";
     const email = body.email || emailFromJwt;
+    console.log(`[saveProfile] Saving profile details for userId: ${userId}. Name: ${name}, Email: ${email}`);
 
     await docClient.send(new PutCommand({
         TableName: TABLE_NAME,

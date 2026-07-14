@@ -2,10 +2,16 @@
 
 ## 1. Root Cause of the Issue
 
-The progress synchronization with DynamoDB stopped working because of temporary session-based constraints introduced in recent changes:
+The progress synchronization with DynamoDB stopped working due to issues on both the frontend and backend:
+
+### Frontend Blockers:
 1. An Immediately Invoked Function Expression (IIFE) was added at the top of `js/utils.js` which intercepted all page reloads and new browser sessions to run `localStorage.removeItem('hub-progress')`, destroying the local cache.
 2. In `syncUserData()` (`js/utils.js`), the code segment that restored the user's progress records from the Cognito backend payload (`data.progress`) was commented out.
 3. In `syncProgressToBackend(courses)` (`js/utils.js`), an early `return;` statement was injected as the first line of the function. This bypassed any calls to the `/progress` API endpoint, preventing progress saving for authenticated users.
+
+### Backend/API Blockers:
+1. **Base64url JWT Parsing**: Standard Cognito JWTs are base64url-encoded and contain `-` and `_` characters. In `backend/index.js`, using `Buffer.from(token, "base64")` caused decoding corruption when encountering these characters, throwing JSON parsing exceptions during sub claim validation. This returned `401 Unauthorized` errors.
+2. **Base64 Request Body**: API Gateway or Lambda proxy configurations can base64-encode incoming POST request bodies. The backend failed to check if `event.isBase64Encoded` was true and decode it, causing `JSON.parse(event.body)` to fail with a `400 Bad Request` error.
 
 ---
 
@@ -20,6 +26,24 @@ The progress synchronization with DynamoDB stopped working because of temporary 
    * **Updated `markQuestionCompleted`**: Modified the function to deep clone the progress state as `originalProgress` before modifying it, then passed this state to `syncProgressToBackend`.
 2. **[js/progress.js](file:///w:/AWS-2/js/progress.js)**
    * **Reset Sync**: Modified `resetAllProgress(registry)` to call `window.syncProgressToBackend({})` upon clicking the "Reset Progress Data" button, clearing the progress database partition in DynamoDB.
+
+### Backend:
+1. **[backend/index.js](file:///w:/AWS-2/backend/index.js)**
+   * **Base64url JWT Decode**: Sanitized base64url characters (`-` and `_` replaced with `+` and `/`) prior to calling `Buffer.from(..., "base64")` to decode the Cognito JWT payload correctly.
+   * **Base64 Request Body decoding**: Added check for `event.isBase64Encoded` and decoded `event.body` if base64-encoded:
+     ```javascript
+     let requestBody = event.body;
+     if (event.isBase64Encoded && requestBody) {
+         try {
+             requestBody = Buffer.from(requestBody, "base64").toString("utf8");
+             console.log("Decoded base64 request body:", requestBody);
+         } catch (err) {
+             console.error("Failed to decode base64 request body:", err);
+         }
+     }
+     ```
+   * **Passed decoded body**: Updated route dispatcher to pass `requestBody` instead of `event.body` to all POST handler functions (`saveBookmarks`, `saveProgress`, and `saveProfile`).
+   * **Added Log Enhancements**: Printed query counts, parsed JSON items, and success states for all database interactions.
 
 ---
 
