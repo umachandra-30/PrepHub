@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepHub - Career Roadmaps</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Access specialized placement roadmaps for Frontend, Backend, AI, DevOps, Mobile, and Machine Learning. Curated preparation milestones.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Custom Roadmap Styles */
+        .roadmaps-hero {
+            padding: 3.5rem 0;
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.05), transparent 45%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .roadmaps-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .roadmaps-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .search-filter-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-group {
+            position: relative;
+            flex-grow: 2;
+            min-width: 250px;
+        }
+
+        .search-group input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all var(--transition-fast);
+        }
+
+        .search-group input:focus {
+            border-color: var(--primary);
+            background-color: var(--bg-secondary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .filter-select-group {
+            flex-grow: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .filter-select-group select {
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-select-group select:focus {
+            border-color: var(--primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .roadmaps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .roadmap-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            height: 100%;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px -10px rgba(37, 99, 235, 0.15), var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .roadmap-icon-container {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: background-color var(--transition-fast);
+        }
+
+        /* Unique card colors for visual interest */
+        .color-frontend { background: rgba(37, 99, 235, 0.08); color: var(--primary); }
+        .color-backend { background: rgba(16, 185, 129, 0.08); color: #10B981; }
+        .color-ai { background: rgba(139, 92, 246, 0.08); color: #8B5CF6; }
+        .color-data { background: rgba(245, 158, 11, 0.08); color: var(--warning); }
+        .color-devops { background: rgba(239, 68, 68, 0.08); color: var(--danger); }
+        .color-fullstack { background: rgba(20, 184, 166, 0.08); color: var(--accent); }
+        .color-mobile { background: rgba(236, 72, 153, 0.08); color: #EC4899; }
+        .color-game { background: rgba(75, 85, 99, 0.08); color: #4B5563; }
+
+        .roadmap-duration {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .roadmap-title-text {
+            font-size: 1.3rem;
+            font-weight: 750;
+            margin-bottom: 0.75rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+        }
+
+        .roadmap-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .roadmap-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .roadmap-tag-pill {
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.55rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .roadmap-actions {
+            display: flex;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+        }
+
+        /* Lock Screen Styling */
+        .lock-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 2rem 1rem;
+        }
+
+        .lock-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lock-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--danger-bg);
+            color: var(--danger);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem;
+            margin-bottom: 1.75rem;
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+        }
+
+        .lock-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .lock-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2.25rem;
+            font-size: 0.95rem;
+        }
+
+        .blur-overlay {
+            filter: blur(8px);
+            opacity: 0.25;
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Header (Injected by utils.js) -->
+    <header></header>
+
+    <!-- Main Container -->
+    <main style="min-height: calc(100vh - 12rem);">
+        
+        <!-- Logged Out Unauthorized State (Injected / Controlled via JS) -->
+        <div id="unauthorized-view" class="lock-container hidden">
+            <div class="lock-card animate-fade">
+                <div class="lock-icon-wrapper">
+                    <i class="lucide-lock"></i>
+                </div>
+                <h2 class="lock-title">Premium Access Only</h2>
+                <p class="lock-text">PrepHub Career Roadmaps compile deep tool checklists and learning paths for top developer roles. Log in or create an account to view and download these pathways.</p>
+                <button class="btn btn-primary" onclick="window.loginUser()" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                    <i class="lucide-log-in" style="margin-right: 0.5rem;"></i>
+                    <span>Log In to Unlock</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Logged In Authorized State (Dynamic Render) -->
+        <div id="authorized-view" class="hidden">
+            <!-- Hero Header -->
+            <section class="roadmaps-hero">
+                <div class="container">
+                    <h1 class="roadmaps-title">Placement Roadmaps</h1>
+                    <p class="roadmaps-subtitle">Master target industry standards and build structure around your training with comprehensive career checklists.</p>
+                </div>
+            </section>
+
+            <!-- Main Workspace -->
+            <div class="container">
+                
+                <!-- Search & Filters -->
+                <div class="search-filter-panel">
+                    <div class="search-group">
+                        <i class="lucide-search"></i>
+                        <input type="text" id="roadmap-search-input" placeholder="Search pathways (e.g. React, Python, ML, iOS)...">
+                    </div>
+                    
+                    <div class="filter-select-group">
+                        <select id="roadmap-difficulty-filter">
+                            <option value="">All Difficulty Levels</option>
+                            <option value="Beginner-Intermediate">Beginner-Intermediate</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Intermediate-Advanced">Intermediate-Advanced</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grid List -->
+                <div class="roadmaps-grid" id="roadmaps-container">
+                    <!-- Dynamic rendering by roadmaps.js -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Injected by utils.js) -->
+    <footer></footer>
+
+    <!-- Scripts Core -->
+    <script src="js/utils.js"></script>
+    <script src="js/roadmaps.js"></script>
+</body>
+</html>
